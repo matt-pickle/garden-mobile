@@ -9,20 +9,22 @@ import styles from "../styles/styles";
 
 function Dashboard(props) {
   const [name, setName] = useState(props.userObj.name);
+  const [gardens, setGardens] = useState(props.userObj.gardens);
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [gardenToDelete, setGardenToDelete] = useState({});
+  const [displayedGarden, setDisplayedGarden] = useState(null);
   const currentUserUID = firebase.auth().currentUser.uid;
   const userRef = firebase.firestore().collection("users").doc(currentUserUID);
 
-  function handleChangeName(newName) {
+  function changeName(newName) {
     setName(newName);
     userRef.update({
       name: newName
     });
   }
 
-  function handleOpenDeleteModal(garden) {
+  function openDeleteModal(garden) {
     setGardenToDelete(garden);
     setIsDeleteModalVisible(true);
   }
@@ -31,6 +33,18 @@ function Dashboard(props) {
     logOut();
     props.setScreen("LoginScreen");
   }
+
+  const gardenList = <GardenList 
+    gardens={gardens}
+    openEditor={openEditor}
+    openDeleteModal={openDeleteModal}
+  />;
+
+  const gardenEditor = <GardenEditor
+    displayedGarden={displayedGarden}
+    saveAndClose={saveAndClose}
+    openDeleteModal={openDeleteModal}
+  />;
 
   return (
     <KeyboardAvoidingView style={styles.dashContainer} behavior="height">
@@ -49,7 +63,7 @@ function Dashboard(props) {
         styles={styles}
         isSettingsVisible={isSettingsVisible}
         setIsSettingsVisible={setIsSettingsVisible}
-        handleChangeName={handleChangeName}
+        changeName={changeName}
         setScreen={props.setScreen}
         handleLogOut={handleLogOut}
       />
@@ -61,6 +75,13 @@ function Dashboard(props) {
         title={gardenToDelete.title}
         // handleDeleteGarden={handleDeleteGarden}
       />
+      {
+        gardens && !isEditorOpen ?
+        gardenList : 
+        gardens && isEditorOpen ?
+        gardenEditor :
+        null
+      }
     </KeyboardAvoidingView>
   );
 
