@@ -101,3 +101,11 @@ export async function changePassword(email, oldPassword, newPassword) {
     Alert.alert("Error!", err.message);
   }
 }
+
+export async function updateGardens(userRef, updatedGardensArr) {
+  try {
+    await userRef.update({gardens: updatedGardensArr});
+  } catch(err) {
+    Alert.alert("Error!", err.message);
+  }
+}

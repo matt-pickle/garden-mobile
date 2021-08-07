@@ -8,7 +8,7 @@ function SettingsModal(props) {
   const [newName, setNewName] = useState("");
 
   function handleSubmit() {
-    props.handleChangeName(newName);
+    props.changeName(newName);
     setNewName("");
   }
 

@@ -12,10 +12,10 @@ function DeleteModal(props) {
       onRequestClose={() => props.setIsDeleteModalVisible(false)}
     >
       <View style={styles.deleteModal}>
-        <Text style={styles.deleteModalText}>Do you want to delete {"\n"}"{props.title}"?</Text>
+        <Text style={styles.deleteModalText}>Do you want to delete {"\n"}"{props.gardenName}"?</Text>
         <View style={styles.modalButtonRow}>
           <TouchableOpacity
-            onPress={() => props.handleDeleteGarden(props.id)}
+            onPress={() => props.deleteGarden(props.id)}
           >
             <Text style={styles.modalHeader}>YES</Text>
           </TouchableOpacity>

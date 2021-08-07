@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import {View, Text, TouchableOpacity, KeyboardAvoidingView} from "react-native";
 import * as firebase from "firebase";
-import {logOut} from "../api/firebase-methods";
+import {logOut, updateGardens} from "../api/firebase-methods";
 import { Ionicons } from '@expo/vector-icons';
 import SettingsModal from "./SettingsModal";
 import DeleteModal from "./DeleteModal";
+import GardenList from "./GardenList";
 import styles from "../styles/styles";
 
 function Dashboard(props) {
@@ -24,9 +25,50 @@ function Dashboard(props) {
     });
   }
 
+  function saveGarden(gardenName, gardenObj) {
+    let updatedGardensArr = [];
+    let id = null;
+    const timestamp = Date.now();
+
+    if (displayedGarden) {
+      updatedGardensArr = notes.filter(item => {
+        return item.id !== displayedGarden.id; 
+      });
+      id = displayedGarden.id;
+    } else {
+      updatedGardensArr = gardens;
+      id = timestamp;
+    }
+    
+    updatedGardensArr.push({
+      id: id,
+      gardenName: gardenName,
+      gardenObj: gardenObj
+    });
+    setGardens(updatedGardensArr);
+    updateGardens(userRef, updatedGardensArr);   
+  }
+
+  function saveAndClose(gardenName, gardenObj) {
+    saveGarden(gardenName, gardenObj);
+    setIsEditorOpen(false);
+    setDisplayedGarden(null);
+  }
+
   function openDeleteModal(garden) {
     setGardenToDelete(garden);
     setIsDeleteModalVisible(true);
+  }
+
+  function deleteGarden(id) {
+    let updatedGardensArr = gardens.filter(item => {
+      return item.id !== id;
+    });
+    setGardens(updatedGardensArr);
+    updateGardens(userRef, updatedGardensArr);
+    setIsEditorOpen(false);
+    setDisplayedGarden(null);
+    setIsDeleteModalVisible(false);
   }
 
   function handleLogOut() {
@@ -42,6 +84,7 @@ function Dashboard(props) {
 
   const gardenEditor = <GardenEditor
     displayedGarden={displayedGarden}
+    saveGarden={saveGarden}
     saveAndClose={saveAndClose}
     openDeleteModal={openDeleteModal}
   />;
@@ -60,7 +103,6 @@ function Dashboard(props) {
         </TouchableOpacity>
       </View>
       <SettingsModal
-        styles={styles}
         isSettingsVisible={isSettingsVisible}
         setIsSettingsVisible={setIsSettingsVisible}
         changeName={changeName}
@@ -68,12 +110,11 @@ function Dashboard(props) {
         handleLogOut={handleLogOut}
       />
       <DeleteModal
-        styles={styles}
         isDeleteModalVisible={isDeleteModalVisible}
         setIsDeleteModalVisible={setIsDeleteModalVisible}
         id={gardenToDelete.id}
-        title={gardenToDelete.title}
-        // handleDeleteGarden={handleDeleteGarden}
+        gardenName={gardenToDelete.gardenName}
+        deleteGarden={deleteGarden}
       />
       {
         gardens && !isEditorOpen ?
