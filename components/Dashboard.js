@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 import {logOut, updateGardens} from "../api/firebase-methods";
 import { Ionicons } from '@expo/vector-icons';
 import SettingsModal from "./SettingsModal";
+import CreatGardenModal from "./CreateGardenModal";
 import DeleteModal from "./DeleteModal";
 import GardenList from "./GardenList";
 import styles from "../styles/styles";
@@ -13,6 +14,7 @@ function Dashboard(props) {
   const [gardens, setGardens] = useState(props.userObj.gardens);
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
+  const [isCreateGardenModalVisible, setIsCreateGardenModalVisible] = useState(false);
   const [gardenToDelete, setGardenToDelete] = useState({});
   const [displayedGarden, setDisplayedGarden] = useState(null);
   const currentUserUID = firebase.auth().currentUser.uid;
@@ -25,24 +27,26 @@ function Dashboard(props) {
     });
   }
 
-  function saveGarden(gardenName, gardenObj) {
-    let updatedGardensArr = [];
-    let id = null;
+  function createNewGarden(gardenName, zone) {
     const timestamp = Date.now();
-
-    if (displayedGarden) {
-      updatedGardensArr = notes.filter(item => {
-        return item.id !== displayedGarden.id; 
-      });
-      id = displayedGarden.id;
-    } else {
-      updatedGardensArr = gardens;
-      id = timestamp;
-    }
-    
-    updatedGardensArr.push({
-      id: id,
+    let updatedGardensArr = gardens.push({
+      id: timestamp,
       gardenName: gardenName,
+      zone: zone,
+      gardenObj: {}
+    });
+    setGardens(updatedGardensArr);
+    updateGardens(userRef, updatedGardensArr);   
+  }
+
+  function saveGarden(gardenObj) {
+    let updatedGardensArr = gardens.filter(item => {
+      return item.id !== displayedGarden.id; 
+    });    
+    updatedGardensArr.push({
+      id: displayedGarden.id,
+      gardenName: displayedGarden.gardenName,
+      zone: displayedGarden.zone,
       gardenObj: gardenObj
     });
     setGardens(updatedGardensArr);
@@ -108,6 +112,11 @@ function Dashboard(props) {
         changeName={changeName}
         setScreen={props.setScreen}
         handleLogOut={handleLogOut}
+      />
+      <CreateGardenModal 
+        isCreateGardenModalVisible={isCreateGardenModalVisible}
+        setIsCreateGardenModalVisible={setIsCreateGardenModalVisible}
+        createNewGarden={createNewGarden}
       />
       <DeleteModal
         isDeleteModalVisible={isDeleteModalVisible}
