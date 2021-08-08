@@ -13,7 +13,6 @@ export async function registration(name, email, password) {
         firebase.firestore().collection("users").doc(user.uid).set({
           email: user.email,
           name: name,
-          zone: "",
           gardens: []
         });
         Alert.alert(
