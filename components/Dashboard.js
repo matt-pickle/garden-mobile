@@ -7,6 +7,7 @@ import SettingsModal from "./SettingsModal";
 import CreateGardenModal from "./CreateGardenModal";
 import DeleteModal from "./DeleteModal";
 import GardenList from "./GardenList";
+import GardenEditor from "./GardenEditor";
 import styles from "../styles/styles";
 
 function Dashboard(props) {
@@ -15,6 +16,7 @@ function Dashboard(props) {
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [isCreateGardenModalVisible, setIsCreateGardenModalVisible] = useState(false);
+  const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [gardenToDelete, setGardenToDelete] = useState({});
   const [displayedGarden, setDisplayedGarden] = useState(null);
   const currentUserUID = firebase.auth().currentUser.uid;
@@ -29,14 +31,20 @@ function Dashboard(props) {
 
   function createNewGarden(gardenName, zone) {
     const timestamp = Date.now();
-    let updatedGardensArr = gardens.push({
+    let updatedGardensArr = [...gardens, {
       id: timestamp,
       gardenName: gardenName,
       zone: zone,
       gardenObj: {}
-    });
+    }];
     setGardens(updatedGardensArr);
-    updateGardens(userRef, updatedGardensArr);   
+    updateGardens(userRef, updatedGardensArr);
+    setIsCreateGardenModalVisible(false);
+  }
+
+  function openEditor(garden) {
+    setDisplayedGarden(garden);
+    setIsEditorOpen(true);
   }
 
   function saveGarden(gardenObj) {
@@ -83,6 +91,7 @@ function Dashboard(props) {
   const gardenList = <GardenList 
     gardens={gardens}
     openEditor={openEditor}
+    setIsCreateGardenModalVisible={setIsCreateGardenModalVisible}
     openDeleteModal={openDeleteModal}
   />;
 
