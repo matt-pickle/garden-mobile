@@ -9,7 +9,7 @@ function GardenList(props) {
     return (
       <GardenListItem
         key={item.id}
-        note={item}
+        garden={item}
         openEditor={props.openEditor}
         openDeleteModal={props.openDeleteModal}
       />
@@ -24,7 +24,7 @@ function GardenList(props) {
       </ScrollView>
       <TouchableOpacity
           style={styles.newGardenButton}
-          onPress={props.openNewGardenModal}
+          onPress={() => props.setIsCreateGardenModalVisible(true)}
         >
           <Text style={styles.newGardenButtonText}>+</Text>
       </TouchableOpacity>

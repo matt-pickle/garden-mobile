@@ -8,7 +8,7 @@ function GardenListItem(props) {
     <View style={styles.listItemContainer}>
       <TouchableOpacity 
         style={styles.listItemTitleButton}
-        onPress={() => props.openEditor(props.garden.id)}
+        onPress={() => props.openEditor(props.garden)}
       >
         <Text style={styles.listItemText}>{props.garden.gardenName}</Text>
       </TouchableOpacity>
