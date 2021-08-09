@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import {Modal, Text, View, TouchableOpacity} from "react-native";
+import {Modal, Text, View, TouchableOpacity, TextInput} from "react-native";
 import {Picker} from "@react-native-picker/picker";
 import styles from "../styles/styles";
 
 function CreateGardenModal(props) {
   const [gardenName, setGardenName] = useState("");
-  const [zone, setZone] = useState("");
+  const [zone, setZone] = useState("1a");
 
   return (
     <Modal
