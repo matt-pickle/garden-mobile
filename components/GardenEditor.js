@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Text, View, TouchableOpacity} from "react-native";
 import {Picker} from "@react-native-picker/picker";
+import Square from "./Square";
 import styles from "../styles/styles";
 
 function GardenEditor(props) {
@@ -13,12 +14,7 @@ function GardenEditor(props) {
     for (i = 0; i < (width * height); i++) {
       setGridArr(prev => [
         ...prev,
-        <TouchableOpacity
-          style={styles.square}
-          onPress={() => console.log("pressed " + prev.length)} 
-          key={prev.length}
-        >
-        </TouchableOpacity>
+        <Square key={prev.length} id={prev.length} />
       ]);
     }
   }, [width, height]);
