@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from "react";
-import {Text, View, TouchableOpacity, PickerIOS} from "react-native";
+import {Text, View, TouchableOpacity} from "react-native";
 import {Picker} from "@react-native-picker/picker";
 import Square from "./Square";
+import PlantMenu from "./PlantMenu";
 import {createStyleSheet} from "../styles/editor-styles.js";
 
 function GardenEditor(props) {
   const [width, setWidth] = useState(4);
   const [height, setHeight] = useState(4);
   const [gridArr, setGridArr] = useState([]);
+  const [selectedPlant, setSelectedPlant] = useState("none");
   const styles = createStyleSheet(width);
 
   useEffect(() => {
@@ -15,10 +17,10 @@ function GardenEditor(props) {
     for (i = 0; i < (width * height); i++) {
       setGridArr(prev => [
         ...prev,
-        <Square key={prev.length} id={prev.length} />
+        <Square selectedPlant={selectedPlant} />
       ]);
     }
-  }, [width, height]);
+  }, [width, height, selectedPlant]);
 
   function populatePicker() {
     let optionsArr = [];
@@ -60,6 +62,10 @@ function GardenEditor(props) {
       <View style={styles.gridContainer}>
         {gridArr}
       </View>
+      <PlantMenu
+        setSelectedPlant={setSelectedPlant}
+        selectedPlant={selectedPlant}
+      />
     </View>
   )
 }

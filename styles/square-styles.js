@@ -11,6 +11,9 @@ function createStyleSheet(planted) {
     case "broccoli":
       icon = "green";
       break;
+    case "onion":
+      icon = "tan";
+      break;
   }
 
   return StyleSheet.create({

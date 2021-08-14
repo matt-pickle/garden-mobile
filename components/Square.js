@@ -10,7 +10,7 @@ function Square(props) {
   return (
     <TouchableOpacity
       style={styles.square}
-      onPress={() => setPlanted("broccoli")}
+      onPress={() => setPlanted(props.selectedPlant)}
     >
       <Text>{planted}</Text>
     </TouchableOpacity>
