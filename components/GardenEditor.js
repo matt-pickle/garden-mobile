@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Text, View, TouchableOpacity} from "react-native";
+import {Text, View, TouchableOpacity, PickerIOS} from "react-native";
 import {Picker} from "@react-native-picker/picker";
 import Square from "./Square";
 import {createStyleSheet} from "../styles/editor-styles.js";
@@ -20,9 +20,46 @@ function GardenEditor(props) {
     }
   }, [width, height]);
 
+  function populatePicker() {
+    let optionsArr = [];
+    for (i = 1; i <= 8; i++) {
+      optionsArr.push(
+        <Picker.Item
+          label={i.toString()}
+          value={i}
+        />
+      );
+    }
+    return optionsArr;
+  }
+
   return (
-    <View style={styles.gridContainer}>
-      {gridArr}
+    <View style={styles.editor}>
+      <View style={styles.widthPickerContainer}>
+        <Text style={styles.pickerLabel}>Width: </Text>
+        <Picker
+          style={styles.picker}
+          mode="dropdown"
+          selectedValue={width}
+          onValueChange={value => setWidth(value)}
+        >
+          {populatePicker()}
+        </Picker>
+      </View>
+      <View style={styles.heightPickerContainer}>
+        <Text style={styles.pickerLabel}>Height: </Text>
+        <Picker
+          style={styles.picker}
+          mode="dropdown"
+          selectedValue={width}
+          onValueChange={value => setHeight(value)}
+        >
+          {populatePicker()}
+        </Picker>
+      </View>
+      <View style={styles.gridContainer}>
+        {gridArr}
+      </View>
     </View>
   )
 }
