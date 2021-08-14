@@ -12,23 +12,8 @@ const styles = StyleSheet.create({
     height: 100
   },
 
-  square: {
-    height: 40,
-    width: 40,
-    backgroundColor: "red",
-    borderWidth: 2,
-    borderColor: "black"
-  },
-  
   newGardenButtonText: {
     fontSize: 200
-  },
-  
-  gridContainer: {
-    backgroundColor: "blue",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    width: 320
   }
 
 });
