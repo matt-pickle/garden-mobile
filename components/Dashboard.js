@@ -47,7 +47,7 @@ function Dashboard(props) {
     setIsEditorOpen(true);
   }
 
-  function saveGarden(gardenObj) {
+  function saveGarden(width, height, plantedArr) {
     let updatedGardensArr = gardens.filter(item => {
       return item.id !== displayedGarden.id; 
     });    
@@ -55,14 +55,16 @@ function Dashboard(props) {
       id: displayedGarden.id,
       gardenName: displayedGarden.gardenName,
       zone: displayedGarden.zone,
-      gardenObj: gardenObj
+      width: width,
+      height: height,
+      plantedArr: plantedArr
     });
     setGardens(updatedGardensArr);
     updateGardens(userRef, updatedGardensArr);   
   }
 
-  function saveAndClose(gardenName, gardenObj) {
-    saveGarden(gardenName, gardenObj);
+  function saveAndClose(width, height, plantedArr) {
+    saveGarden(width, height, plantedArr);
     setIsEditorOpen(false);
     setDisplayedGarden(null);
   }

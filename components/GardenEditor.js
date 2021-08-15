@@ -6,21 +6,32 @@ import PlantMenu from "./PlantMenu";
 import {createStyleSheet} from "../styles/editor-styles.js";
 
 function GardenEditor(props) {
-  const [width, setWidth] = useState(4);
-  const [height, setHeight] = useState(4);
+  const [plantedArr, setPlantedArr] = useState(props.displayedGarden.plantedArr || []);
+  const [width, setWidth] = useState(props.displayedGarden.width || 4);
+  const [height, setHeight] = useState(props.displayedGarden.height || 4);
   const [gridArr, setGridArr] = useState([]);
   const [selectedPlant, setSelectedPlant] = useState("none");
   const styles = createStyleSheet(width);
 
   useEffect(() => {
-    setGridArr([]);
+    if (plantedArr.length) {
+      setGridArr(plantedArr.map(item => {
+        <Square planted={item} selectedPlant={selectedPlant} />
+      }));
+    } else {
+      redrawGrid();
+    }
+  }, []);
+
+  function redrawGrid() {
     for (i = 0; i < (width * height); i++) {
+      setPlantedArr(prev => [...prev, "none"]);
       setGridArr(prev => [
         ...prev,
-        <Square selectedPlant={selectedPlant} />
+        <Square planted="none" selectedPlant={selectedPlant} />
       ]);
     }
-  }, [width, height, selectedPlant]);
+  }
 
   function populatePicker() {
     let optionsArr = [];
@@ -35,6 +46,16 @@ function GardenEditor(props) {
     return optionsArr;
   }
 
+  function changeHeight(value) {
+    setHeight(value);
+    redrawGrid();
+  }
+
+  function changeWidth(value) {
+    setWidth(value);
+    redrawGrid();
+  }
+
   return (
     <View style={styles.editor}>
       <View style={styles.widthPickerContainer}>
@@ -43,7 +64,7 @@ function GardenEditor(props) {
           style={styles.picker}
           mode="dropdown"
           selectedValue={width}
-          onValueChange={value => setWidth(value)}
+          onValueChange={value => changeWidth(value)}
         >
           {populatePicker()}
         </Picker>
@@ -54,7 +75,7 @@ function GardenEditor(props) {
           style={styles.picker}
           mode="dropdown"
           selectedValue={width}
-          onValueChange={value => setHeight(value)}
+          onValueChange={value => changeHeight(value)}
         >
           {populatePicker()}
         </Picker>
