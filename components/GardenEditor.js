@@ -35,7 +35,6 @@ function GardenEditor(props) {
       newPlantedArr.push("none");
       newGridArr.push(<Square planted="none" selectedPlant={selectedPlant} />);
     }
-    console.log("newPlantedArr: " + newPlantedArr.length)
     setPlantedArr(newPlantedArr);
     setGridArr(newGridArr);
   }
@@ -52,16 +51,6 @@ function GardenEditor(props) {
     }
     return optionsArr;
   }
-
-  // function changeHeight(value) {
-  //   setHeight(value);
-  //   redrawGrid();
-  // }
-
-  // function changeWidth(value) {
-  //   setWidth(value);
-  //   redrawGrid();
-  // }
 
   return (
     <View style={styles.editor}>
