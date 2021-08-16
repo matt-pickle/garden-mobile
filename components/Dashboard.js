@@ -35,7 +35,9 @@ function Dashboard(props) {
       id: timestamp,
       gardenName: gardenName,
       zone: zone,
-      gardenObj: {}
+      width: 4,
+      height: 4,
+      plantedArr: []
     }];
     setGardens(updatedGardensArr);
     updateGardens(userRef, updatedGardensArr);
