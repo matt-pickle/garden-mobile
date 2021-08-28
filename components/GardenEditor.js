@@ -15,28 +15,56 @@ function GardenEditor(props) {
   const styles = createStyleSheet(width);
 
   useEffect(() => {
+    redrawGrid();
+  }, [width, height, selectedPlant, plantedArr]);
+
+  useEffect(() => {
     if (plantedArr.length > 0) {
-      setGridArr(plantedArr.map(item => {
-        return <Square planted={item} selectedPlant={selectedPlant} />
+      setGridArr(plantedArr.map((item, index) => {
+        return (
+          <Square 
+            id={index}
+            planted={item}
+            selectedPlant={selectedPlant}
+            changePlantInArr={changePlantInArr}
+            key={index}
+          />
+        );
       }));
     } else {
       redrawGrid();
+      createBlankPlantedArr();
     }
   }, []);
 
-  useEffect(() => {
-    redrawGrid();
-  }, [width, height, selectedPlant]);
-
   function redrawGrid() {
-    let newPlantedArr = [];
     let newGridArr = [];
     for (i = 0; i < (width * height); i++) {
+      newGridArr.push(
+        <Square
+          id={i}
+          planted="none"
+          selectedPlant={selectedPlant}
+          changePlantInArr={changePlantInArr}
+          key={i}
+        />
+      );
+    }
+    setGridArr(newGridArr);
+  }
+
+  function createBlankPlantedArr() {
+    let newPlantedArr = [];
+    for (i = 0; i < (width * height); i++) {
       newPlantedArr.push("none");
-      newGridArr.push(<Square planted="none" selectedPlant={selectedPlant} />);
     }
     setPlantedArr(newPlantedArr);
-    setGridArr(newGridArr);
+  }
+
+  function changePlantInArr(index, newPlant) {
+    let newPlantedArr = [...plantedArr];
+    newPlantedArr[index] = newPlant;
+    setPlantedArr(newPlantedArr);
   }
 
   function populatePicker() {
@@ -46,6 +74,7 @@ function GardenEditor(props) {
         <Picker.Item
           label={i.toString()}
           value={i}
+          key={i}
         />
       );
     }
