@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Text, View, TouchableOpacity} from "react-native";
 import {Picker} from "@react-native-picker/picker";
+import uuid from "react-native-uuid";
 import { Ionicons } from '@expo/vector-icons';
 import Square from "./Square";
 import PlantMenu from "./PlantMenu";
@@ -10,55 +11,29 @@ function GardenEditor(props) {
   const [plantedArr, setPlantedArr] = useState(props.displayedGarden.plantedArr);
   const [width, setWidth] = useState(props.displayedGarden.width);
   const [height, setHeight] = useState(props.displayedGarden.height);
-  const [gridArr, setGridArr] = useState([]);
   const [selectedPlant, setSelectedPlant] = useState("none");
   const styles = createStyleSheet(width);
 
-  useEffect(() => {
-    redrawGrid();
-  }, [width, height, selectedPlant, plantedArr]);
-
-  useEffect(() => {
-    if (plantedArr.length > 0) {
-      setGridArr(plantedArr.map((item, index) => {
-        return (
-          <Square 
-            id={index}
-            planted={item}
-            selectedPlant={selectedPlant}
-            changePlantInArr={changePlantInArr}
-            key={index}
-          />
-        );
-      }));
-    } else {
-      redrawGrid();
-      createBlankPlantedArr();
-    }
-  }, []);
-
-  function redrawGrid() {
-    let newGridArr = [];
-    for (i = 0; i < (width * height); i++) {
-      newGridArr.push(
-        <Square
-          id={i}
-          planted="none"
-          selectedPlant={selectedPlant}
-          changePlantInArr={changePlantInArr}
-          key={i}
-        />
-      );
-    }
-    setGridArr(newGridArr);
-  }
-
-  function createBlankPlantedArr() {
+  function createBlankPlantedArr(newWidth, newHeight) {
     let newPlantedArr = [];
-    for (i = 0; i < (width * height); i++) {
+    for (i = 0; i < (newWidth * newHeight); i++) {
       newPlantedArr.push("none");
     }
     setPlantedArr(newPlantedArr);
+  }
+  
+  if (!plantedArr) {
+    createBlankPlantedArr(width, height);
+  }
+
+  function changeWidth(newWidth) {
+    setWidth(newWidth);
+    createBlankPlantedArr(newWidth, height);
+  }
+
+  function changeHeight(newHeight) {
+    setHeight(newHeight);
+    createBlankPlantedArr(width, newHeight);
   }
 
   function changePlantInArr(index, newPlant) {
@@ -81,6 +56,18 @@ function GardenEditor(props) {
     return optionsArr;
   }
 
+  const gridArr = plantedArr.map((item, index) => {
+    return (
+      <Square 
+        id={index}
+        planted={item}
+        selectedPlant={selectedPlant}
+        changePlantInArr={changePlantInArr}
+        key={uuid.v4()}
+      />
+    );
+  });
+
   return (
     <View style={styles.editor}>
       <View style={styles.widthPickerContainer}>
@@ -89,7 +76,7 @@ function GardenEditor(props) {
           style={styles.picker}
           mode="dropdown"
           selectedValue={width}
-          onValueChange={value => setWidth(value)}
+          onValueChange={value => changeWidth(value)}
         >
           {populatePicker()}
         </Picker>
@@ -100,7 +87,7 @@ function GardenEditor(props) {
           style={styles.picker}
           mode="dropdown"
           selectedValue={height}
-          onValueChange={value => setHeight(value)}
+          onValueChange={value => changeHeight(value)}
         >
           {populatePicker()}
         </Picker>
