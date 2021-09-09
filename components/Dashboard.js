@@ -8,6 +8,7 @@ import CreateGardenModal from "./CreateGardenModal";
 import DeleteModal from "./DeleteModal";
 import GardenList from "./GardenList";
 import GardenEditor from "./GardenEditor";
+import Schedule from "./Schedule";
 import styles from "../styles/styles";
 
 function Dashboard(props) {
@@ -17,6 +18,7 @@ function Dashboard(props) {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [isCreateGardenModalVisible, setIsCreateGardenModalVisible] = useState(false);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
+  const [isScheduleOpen, setIsScheduleOpen] = useState(false);
   const [gardenToDelete, setGardenToDelete] = useState({});
   const [displayedGarden, setDisplayedGarden] = useState(null);
   const currentUserUID = firebase.auth().currentUser.uid;
@@ -106,6 +108,11 @@ function Dashboard(props) {
     openDeleteModal={openDeleteModal}
   />;
 
+  const schedule = <Schedule
+    gardens={gardens}
+    setIsScheduleOpen={setIsScheduleOpen}
+  />;
+
   return (
     <KeyboardAvoidingView style={styles.dashContainer} behavior="height">
       <View style={styles.dashTopRowContainer}>
@@ -117,6 +124,11 @@ function Dashboard(props) {
             name="settings-sharp"
             style={styles.dashHeader}
           />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => setIsScheduleOpen(true)}
+        >
+          <Text>OPEN SCHEDULE</Text>
         </TouchableOpacity>
       </View>
       <SettingsModal
@@ -139,10 +151,12 @@ function Dashboard(props) {
         deleteGarden={deleteGarden}
       />
       {
-        gardens && !isEditorOpen ?
+        gardens && !isEditorOpen && !isScheduleOpen ?
         gardenList : 
         gardens && isEditorOpen ?
         gardenEditor :
+        gardens && isScheduleOpen ?
+        schedule :
         null
       }
     </KeyboardAvoidingView>
