@@ -22,7 +22,7 @@ function GardenEditor(props) {
     setPlantedArr(newPlantedArr);
   }
   
-  if (!plantedArr) {
+  if (!plantedArr.length) {
     createBlankPlantedArr(width, height);
   }
 
