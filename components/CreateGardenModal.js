@@ -7,6 +7,16 @@ function CreateGardenModal(props) {
   const [gardenName, setGardenName] = useState("");
   const [zone, setZone] = useState("1a");
 
+  function handleOK() {
+    props.createNewGarden(gardenName, zone);
+    setGardenName("");
+  }
+
+  function handleCancel() {
+    props.setIsCreateGardenModalVisible(false);
+    setGardenName("");
+  }
+
   return (
     <Modal
       animationType="slide"
@@ -144,12 +154,12 @@ function CreateGardenModal(props) {
 
         <View style={styles.modalButtonRow}>
           <TouchableOpacity
-            onPress={() => props.createNewGarden(gardenName, zone)}
+            onPress={handleOK}
           >
             <Text style={styles.modalHeader}>OK</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => props.setIsCreateGardenModalVisible(false)}
+            onPress={handleCancel}
           >
             <Text style={styles.modalHeader}>CANCEL</Text>
           </TouchableOpacity>
