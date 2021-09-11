@@ -118,6 +118,7 @@ function GardenEditor(props) {
       <PlantMenu
         setSelectedPlant={setSelectedPlant}
         selectedPlant={selectedPlant}
+        zone={props.displayedGarden.zone}
       />
     </View>
   )

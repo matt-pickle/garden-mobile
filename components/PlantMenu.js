@@ -1,22 +1,27 @@
 import React from "react";
 import {View, TouchableOpacity} from "react-native";
+import plantData from "../database/plantData.js";
 import styles from "../styles/plant-menu-styles.js";
 
 function PlantMenu(props) {
+
+  const plantableArr = plantData.filter(item => {
+    return item.zones.includes(props.zone);
+  });
+
+  const menu = plantableArr.map((item, index) => {
+    return (
+      <TouchableOpacity
+        style={[styles[item.name], (props.selectedPlant === item.name && styles.selected)]}
+        onPress={() => props.setSelectedPlant(item.name)}
+        key={index}
+      />
+    );
+  });
+
   return (
     <View>
-      <TouchableOpacity
-        style={[styles.none, (props.selectedPlant === "none" && styles.selected)]}
-        onPress={() => props.setSelectedPlant("none")}
-      />
-      <TouchableOpacity
-        style={[styles.broccoli, (props.selectedPlant === "broccoli" && styles.selected)]}
-        onPress={() => props.setSelectedPlant("broccoli")}
-      />
-      <TouchableOpacity
-        style={[styles.onion, (props.selectedPlant === "onion" && styles.selected)]}
-        onPress={() => props.setSelectedPlant("onion")}
-      />
+      {menu}
     </View>
   );
 }
