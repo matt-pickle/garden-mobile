@@ -6,15 +6,7 @@ const styles = StyleSheet.create({
     borderColor: "gold"
   },
 
-  none: {
-    height: 64,
-    width: 64,
-    backgroundColor: "brown",
-    borderWidth: 4,
-    borderColor: "black"
-  },
-
-  broccoli: {
+  plantMenuBtn: {
     height: 64,
     width: 64,
     backgroundColor: "green",
@@ -22,13 +14,6 @@ const styles = StyleSheet.create({
     borderColor: "black"
   },
 
-  onion: {
-    height: 64,
-    width: 64,
-    backgroundColor: "tan",
-    borderWidth: 4,
-    borderColor: "black"
-  },
 });
 
 export default styles;
