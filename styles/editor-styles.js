@@ -1,7 +1,7 @@
 import {StyleSheet, Dimensions, StatusBar} from 'react-native';
 
 function createStyleSheet(width) {
-  let gridWidth = width * 40;
+  let gridWidth = width * 40 + 4;
   const windowHeight = Dimensions.get("window").height - StatusBar.currentHeight;
 
   return StyleSheet.create({
@@ -10,7 +10,9 @@ function createStyleSheet(width) {
       backgroundColor: "blue",
       flexDirection: "row",
       flexWrap: "wrap",
-      width: gridWidth
+      width: gridWidth,
+      borderWidth: 2,
+      borderColor: "tan"
     }
 
   });

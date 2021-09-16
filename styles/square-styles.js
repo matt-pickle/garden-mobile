@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     width: 40,
     backgroundColor: "brown",
     borderWidth: 2,
-    borderColor: "black"
+    borderColor: "tan"
   }
 
 });
