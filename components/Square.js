@@ -1,15 +1,23 @@
-import React, {useState, useEffect} from "react";
-import {Text, View, TouchableOpacity} from "react-native";
-import {createStyleSheet} from "../styles/square-styles.js";
+import React, {useState} from "react";
+import {Image, TouchableOpacity} from "react-native";
+import styles from "../styles/square-styles.js";
 
 function Square(props) {
   const [planted, setPlanted] = useState(props.planted);
 
-  const styles = createStyleSheet(planted);
-
   function changePlant() {
     setPlanted(props.selectedPlant);
     props.changePlantInArr(props.id, props.selectedPlant);
+  }
+
+  let icon = require("../assets/plant-icons/none.png");
+  switch (planted) {
+    case "broccoli":
+      icon = require("../assets/plant-icons/broccoli.png");
+      break;
+    case "onion":
+      icon = require("../assets/plant-icons/onion.png");
+      break;
   }
 
   return (
@@ -17,7 +25,7 @@ function Square(props) {
       style={styles.square}
       onPress={changePlant}
     >
-      <Text>{planted}</Text>
+      <Image source={icon} style={{width: "100%", height: "100%"}}/>
     </TouchableOpacity>
   );
 }
