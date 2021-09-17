@@ -11,7 +11,7 @@ export default plantData = [
     startDate: -84,
     startMessage: "Start broccoli seeds indoors",
     transplantDate: -35,
-    transplantMessage: "Transplant broccoli to garden",
+    transplantMessage: "Transplant broccoli to garden (1 per square foot)",
     harvestDate: 28,
     harvestMessage: "Harvest broccoli when head forms, before it starts to bloom"
   },
@@ -23,7 +23,7 @@ export default plantData = [
     startDate: -70,
     startMessage: "Start onion seeds indoors",
     transplantDate: -28,
-    transplantMessage: "Transplant onions to garden",
+    transplantMessage: "Transplant onions to garden (5 per square foot)",
     harvestDate: 70,
     harvestMessage: "Harvest onions when tops turn brown and fall over"
   }

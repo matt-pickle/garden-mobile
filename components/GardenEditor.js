@@ -47,7 +47,7 @@ function GardenEditor(props) {
     for (i = 1; i <= 8; i++) {
       optionsArr.push(
         <Picker.Item
-          label={i.toString()}
+          label={i.toString() + " ft."}
           value={i}
           key={i}
         />
@@ -70,6 +70,9 @@ function GardenEditor(props) {
 
   return (
     <View style={styles.editor}>
+      <Text>{props.displayedGarden.gardenName}</Text>
+      <Text>Set garden size</Text>
+      <Text>Size changes will reset planting assignments</Text>
       <View style={styles.widthPickerContainer}>
         <Text style={styles.pickerLabel}>Width: </Text>
         <Picker
@@ -115,6 +118,8 @@ function GardenEditor(props) {
       <View style={styles.gridContainer}>
         {gridArr}
       </View>
+      <Text>{selectedPlant}</Text>
+      <Text>Select a plant below, then tap the grid above to assign it to a garden slot</Text>
       <PlantMenu
         setSelectedPlant={setSelectedPlant}
         selectedPlant={selectedPlant}
