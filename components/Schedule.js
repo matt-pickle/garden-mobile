@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Text, View, TouchableOpacity} from "react-native";
-import {Picker} from "@react-native-picker/picker";
-import uuid from "react-native-uuid";
-import { Ionicons } from '@expo/vector-icons';
 import plantData from "../database/plantData";
+import frostDateData from "../database/frostDateData";
 
 function Schedule(props) {
 
@@ -39,7 +37,19 @@ function Schedule(props) {
     return Object.keys(a) - Object.keys(b);
   });
 
-  const scheduleArr = datesArr.map((item, index) => {
+  const readableDatesArr = datesArr.map(item => {
+    const dayOfYear = Number(Object.keys(item)) + frostDateData["1a"];
+    const now = new Date();
+    const startOfYear = new Date(now.getFullYear(), 0, 0);
+    const oneDay = 1000 * 60 * 60 * 24;
+    const date = new Date(Number(startOfYear) + (dayOfYear * oneDay));
+    const monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Dec"];
+    const dateString = `${monthsArr[date.getMonth()]} ${date.getDate()}`;
+
+    return {[dateString]: Object.values(item)};
+  });
+
+  const scheduleArr = readableDatesArr.map((item, index) => {
     return <Text key={index}>{Object.keys(item)}: {Object.values(item)}</Text>
   });
 
