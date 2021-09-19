@@ -38,13 +38,14 @@ function Schedule(props) {
   });
 
   const readableDatesArr = datesArr.map(item => {
-    const dayOfYear = Number(Object.keys(item)) + frostDateData["1a"];
+    const dayOfYear = Number(Object.keys(item)) + frostDateData[props.zone];
     const now = new Date();
     const startOfYear = new Date(now.getFullYear(), 0, 0);
     const oneDay = 1000 * 60 * 60 * 24;
     const date = new Date(Number(startOfYear) + (dayOfYear * oneDay));
-    const monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Dec"];
+    const monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const dateString = `${monthsArr[date.getMonth()]} ${date.getDate()}`;
+    console.log(date.getMonth())
 
     return {[dateString]: Object.values(item)};
   });
