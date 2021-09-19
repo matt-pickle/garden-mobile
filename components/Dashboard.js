@@ -103,6 +103,7 @@ function Dashboard(props) {
 
   const gardenEditor = <GardenEditor
     displayedGarden={displayedGarden}
+    zone={props.userObj.zone}
     saveGarden={saveGarden}
     saveAndClose={saveAndClose}
     openDeleteModal={openDeleteModal}
@@ -110,6 +111,7 @@ function Dashboard(props) {
 
   const schedule = <Schedule
     gardens={gardens}
+    zone={props.userObj.zone}
     setIsScheduleOpen={setIsScheduleOpen}
   />;
 
