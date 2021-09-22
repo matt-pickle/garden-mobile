@@ -31,80 +31,6 @@ function SettingsModal(props) {
             />
           </TouchableOpacity>
         </View>
-
-        <View style={styles.themeSwitchContainer}>
-          <Text style={styles.modalText}>Theme: </Text>
-          <Picker
-            style={styles.themePicker}
-            mode="dropdown"
-            selectedValue={props.theme}
-            onValueChange={value => props.handleChangeTheme(value)}
-          >
-            <Picker.Item
-              label="Red"
-              value="red"
-            />
-            <Picker.Item
-              label="Orange"
-              value="orange"
-            />
-            <Picker.Item
-              label="Yellow"
-              value="yellow"
-            />
-            <Picker.Item
-              label="Green"
-              value="green"
-            />
-            <Picker.Item
-              label="Blue"
-              value="blue"
-            />
-            <Picker.Item
-              label="Purple"
-              value="purple"
-            />
-            <Picker.Item
-              label="Gray"
-              value="gray"
-            />
-          </Picker>
-        </View>
-
-        <View style={styles.sortBySwitchContainer}>
-          <Text style={styles.modalText}>Sort By: </Text>
-          <Picker
-            style={styles.sortByPicker}
-            mode="dropdown"
-            selectedValue={props.sortBy}
-            onValueChange={value => props.handleChangeSortBy(value)}
-          >
-            <Picker.Item
-              label="Last modified (descending)"
-              value="modified-desc"
-            />
-            <Picker.Item
-              label="Last modified (ascending)"
-              value="modified-asc"
-            />
-            <Picker.Item
-              label="Date created (descending)"
-              value="created-desc"
-            />
-            <Picker.Item
-              label="Date created (ascending)"
-              value="created-asc"
-            />
-            <Picker.Item
-              label="Alphabetical"
-              value="alph"
-            />
-            <Picker.Item
-              label="Reverse alphabetical"
-              value="alph-reverse"
-            />
-          </Picker>
-        </View>
         
         <View style={styles.changeNameContainer}>
           <Text style={styles.modalText}>Change Name: </Text>
@@ -120,6 +46,119 @@ function SettingsModal(props) {
             <Text style={styles.settingsButton}>SUBMIT</Text>
           </TouchableOpacity>
         </View>
+
+        <Text style={styles.lightText}>Change USDA Plant Hardiness Zone: </Text>
+        <Picker
+          style={styles.zonePicker}
+          mode="dropdown"
+          selectedValue={props.zone}
+          onValueChange={value => props.changeZone(value)}
+        >
+          <Picker.Item
+            label="1a"
+            value="1a"
+          />
+          <Picker.Item
+            label="1b"
+            value="1b"
+          />
+          <Picker.Item
+            label="2a"
+            value="2a"
+          />
+          <Picker.Item
+            label="2b"
+            value="2b"
+          />
+          <Picker.Item
+            label="3a"
+            value="3a"
+          />
+          <Picker.Item
+            label="3b"
+            value="3b"
+          />
+          <Picker.Item
+            label="4a"
+            value="4a"
+          />
+          <Picker.Item
+            label="4b"
+            value="4b"
+          />
+          <Picker.Item
+            label="5a"
+            value="5a"
+          />
+          <Picker.Item
+            label="5b"
+            value="5b"
+          />
+          <Picker.Item
+            label="6a"
+            value="6a"
+          />
+          <Picker.Item
+            label="6b"
+            value="6b"
+          />
+          <Picker.Item
+            label="7a"
+            value="7a"
+          />
+          <Picker.Item
+            label="7b"
+            value="7b"
+          />
+          <Picker.Item
+            label="8a"
+            value="8a"
+          />
+          <Picker.Item
+            label="8b"
+            value="8b"
+          />
+          <Picker.Item
+            label="9a"
+            value="9a"
+          />
+          <Picker.Item
+            label="9b"
+            value="9b"
+          />
+          <Picker.Item
+            label="10a"
+            value="10a"
+          />
+          <Picker.Item
+            label="10b"
+            value="10b"
+          />
+          <Picker.Item
+            label="11a"
+            value="11a"
+          />
+          <Picker.Item
+            label="11b"
+            value="11b"
+          />
+          <Picker.Item
+            label="12a"
+            value="12a"
+          />
+          <Picker.Item
+            label="12b"
+            value="12b"
+          />
+          <Picker.Item
+            label="13a"
+            value="13a"
+          />
+          <Picker.Item
+            label="13b"
+            value="13b"
+          />
+        </Picker>
 
         <TouchableOpacity onPress={() => props.setScreen("ChangeEmailScreen")}>
           <Text style={styles.settingsButton}>CHANGE EMAIL</Text>

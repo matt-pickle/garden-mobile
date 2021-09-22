@@ -13,6 +13,7 @@ import styles from "../styles/styles";
 
 function Dashboard(props) {
   const [name, setName] = useState(props.userObj.name);
+  const [zone, setZone] = useState(props.userObj.zone);
   const [gardens, setGardens] = useState(props.userObj.gardens);
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
@@ -28,6 +29,13 @@ function Dashboard(props) {
     setName(newName);
     userRef.update({
       name: newName
+    });
+  }
+
+  function changeZone(newZone) {
+    setZone(newZone);
+    userRef.update({
+      zone: newZone
     });
   }
 
@@ -103,7 +111,7 @@ function Dashboard(props) {
 
   const gardenEditor = <GardenEditor
     displayedGarden={displayedGarden}
-    zone={props.userObj.zone}
+    zone={zone}
     saveGarden={saveGarden}
     saveAndClose={saveAndClose}
     openDeleteModal={openDeleteModal}
@@ -111,7 +119,7 @@ function Dashboard(props) {
 
   const schedule = <Schedule
     gardens={gardens}
-    zone={props.userObj.zone}
+    zone={zone}
     setIsScheduleOpen={setIsScheduleOpen}
   />;
 
@@ -137,6 +145,8 @@ function Dashboard(props) {
         isSettingsVisible={isSettingsVisible}
         setIsSettingsVisible={setIsSettingsVisible}
         changeName={changeName}
+        zone={zone}
+        changeZone={changeZone}
         setScreen={props.setScreen}
         handleLogOut={handleLogOut}
       />
