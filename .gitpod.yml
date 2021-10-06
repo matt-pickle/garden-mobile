@@ -1,8 +1,7 @@
+image:
+    file: .gitpod.dockerfile
 tasks:
-  - init: |
-      npm install
-      npm install -g expo-cli
-
+  - init: npm install
 ports:
-  - port: 19002
+  - port: 19000-19002
     onOpen: open-browser
