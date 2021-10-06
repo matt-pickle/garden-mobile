@@ -1,3 +1,8 @@
 tasks:
-  - before: npm install
-    init: npm install -g expo-cli
+  - init: |
+      npm install
+      npm install -g expo-cli
+
+ports:
+  - port: 19002
+    onOpen: open-browser
