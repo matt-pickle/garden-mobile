@@ -4,4 +4,3 @@ tasks:
   - init: npm install
 ports:
   - port: 19000-19002
-    onOpen: open-browser
