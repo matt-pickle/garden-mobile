@@ -3,7 +3,7 @@ export default plantData = [
     name: "none",
     zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b","12a","12b","13a","13b"],
   },
-
+  
   {
     name: "broccoli",
     perSquareFoot: 1,
@@ -17,8 +17,32 @@ export default plantData = [
   },
 
   {
-    name: "onion",
+    name: "carrot",
+    perSquareFoot: 16,
+    zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
+    startDate: -21,
+    startMessage: "Sow carrot seeds in the garden (16 per square foot)",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 49,
+    harvestMessage: "Harvest carrots"
+  },
+
+  {
+    name: "lettuce",
     perSquareFoot: 4,
+    zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: -28,
+    startMessage: "Sow lettuce seeds in the garden (4 per square foot)",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 21,
+    harvestMessage: "Harvest lettuce, starting with outer leaves. Continue harvesting until the plant bolts."
+  },
+
+  {
+    name: "onion",
+    perSquareFoot: 5,
     zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b","12a","12b","13a","13b"],
     startDate: -70,
     startMessage: "Start onion seeds indoors",
@@ -26,5 +50,53 @@ export default plantData = [
     transplantMessage: "Transplant onions to garden (5 per square foot)",
     harvestDate: 70,
     harvestMessage: "Harvest onions when tops turn brown and fall over"
+  },
+
+  {
+    name: "potato",
+    perSquareFoot: 1,
+    zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
+    startDate: 0,
+    startMessage: "Plant sprouted potato sections in the garden (1 per square foot)",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 84,
+    harvestMessage: "Harvest potatoes when the tops die"
+  },
+
+  {
+    name: "spinach",
+    perSquareFoot: 9,
+    zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b"],
+    startDate: -35,
+    startMessage: "Sow spinach seeds in the garden (9 per square foot)",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 14,
+    harvestMessage: "Harvest lettuce, starting with outer leaves. Continue harvesting until the plant bolts."
+  },
+
+  {
+    name: "sweet potato",
+    perSquareFoot: 1,
+    zones: ["6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b","12a","12b"],
+    startDate: -35,
+    startMessage: "Start sweet potato sprouts indoors in water. Break sprouts off and plant in soil (indoors) when they reach 3 inches in height.",
+    transplantDate: 21,
+    transplantMessage: "Transplant sweet potatoes to garden (1 per square foot, more space is better)",
+    harvestDate: 121,
+    harvestMessage: "Harvest sweet potatoes before first frost. Cure in warm, humid place for 10 days."
+  },
+
+  {
+    name: "tomato",
+    perSquareFoot: 1,
+    zones: ["4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: -42,
+    startMessage: "Start tomato seeds indoors",
+    transplantDate: 7,
+    transplantMessage: "Transplant tomatoes to garden after last frost (1 per square foot)",
+    harvestDate: 77,
+    harvestMessage: "Harvest tomatoes as they become ripe"
   }
 ];
