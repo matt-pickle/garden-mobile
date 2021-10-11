@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, StatusBar, LogBox, Dimension} from "react-native";
+import React, {useState, useEffect} from 'react';
+import {View, StatusBar, LogBox, Dimensions} from "react-native";
 import AppLoading from "expo-app-loading";
 import {useFonts, Ubuntu_700Bold, Ubuntu_400Regular} from "@expo-google-fonts/ubuntu";
 import * as firebase from "firebase";
