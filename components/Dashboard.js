@@ -22,8 +22,7 @@ function Dashboard(props) {
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
   const [gardenToDelete, setGardenToDelete] = useState({});
   const [displayedGarden, setDisplayedGarden] = useState(null);
-  const currentUserUID = firebase.auth().currentUser.uid;
-  const userRef = firebase.firestore().collection("users").doc(currentUserUID);
+  const userRef = firebase.firestore().collection("users").doc(props.currentUserUID);
 
   function changeName(newName) {
     setName(newName);
