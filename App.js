@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StatusBar, LogBox} from "react-native";
+import {View, StatusBar, LogBox, Dimension} from "react-native";
 import AppLoading from "expo-app-loading";
 import {useFonts, Ubuntu_700Bold, Ubuntu_400Regular} from "@expo-google-fonts/ubuntu";
 import * as firebase from "firebase";
@@ -15,6 +15,20 @@ import Dashboard from "./components/Dashboard";
 export default function App() {
   const [userObj, setUserObj] = useState(null);
   const [screen, setScreen] = useState("LoadingScreen");
+  const [orientation, setOrientation] = useState("portrait");
+
+  useEffect(() => {
+    function onChange() {
+      const dim = Dimensions.get("screen");
+      if (dim.width >= dim.height) {
+        setOrientation("landscape");
+      } else {
+        setOrientation("portrait");
+      }
+    }
+    const subscription = Dimensions.addEventListener("change", onChange);
+    return () => subscription.remove();
+  }, []);
 
   //Disable warning message
   LogBox.ignoreLogs(["Setting a timer"]);
