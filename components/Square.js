@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Image, TouchableOpacity} from "react-native";
-import styles from "../styles/square-styles.js";
+import styles from "../styles/styles.js";
 
 function Square(props) {
   const [planted, setPlanted] = useState(props.planted);

@@ -1,7 +1,7 @@
 import React from "react";
 import {View, Image, TouchableOpacity} from "react-native";
 import plantData from "../database/plantData.js";
-import styles from "../styles/plant-menu-styles.js";
+import styles from "../styles/styles.js";
 
 function PlantMenu(props) {
 
