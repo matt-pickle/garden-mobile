@@ -1,17 +1,10 @@
-import React, {useState} from "react";
-import {Modal, Text, View, TextInput, TouchableOpacity} from "react-native";
+import React from "react";
+import {Modal, Text, View, TouchableOpacity} from "react-native";
 import {Picker} from "@react-native-picker/picker";
 import {Ionicons} from "@expo/vector-icons";
 import styles from "../styles/styles";
 
 function SettingsModal(props) {
-  const [newName, setNewName] = useState("");
-
-  function handleSubmit() {
-    props.changeName(newName);
-    setNewName("");
-  }
-
   return (
     <Modal
       animationType="slide"
@@ -31,21 +24,8 @@ function SettingsModal(props) {
             />
           </TouchableOpacity>
         </View>
-        
-        <View style={styles.changeNameContainer}>
-          <Text style={styles.modalText}>Change Name: </Text>
-          <TextInput
-            style={styles.changeNameInput}
-            placeholderTextColor="rgb(120,120,130)"
-            placeholder="New Name"
-            maxLength={20}
-            value={newName}
-            onChangeText={text => setNewName(text)}
-          />
-          <TouchableOpacity onPress={handleSubmit}>
-            <Text style={styles.settingsButton}>SUBMIT</Text>
-          </TouchableOpacity>
-        </View>
+
+        <Text style={styles.lightText}>Logged in as {props.email}</Text>
 
         <Text style={styles.lightText}>Change USDA Plant Hardiness Zone: </Text>
         <Picker

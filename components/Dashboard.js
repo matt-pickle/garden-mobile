@@ -12,7 +12,6 @@ import Schedule from "./Schedule";
 import styles from "../styles/styles";
 
 function Dashboard(props) {
-  const [name, setName] = useState(props.userObj.name);
   const [zone, setZone] = useState(props.userObj.zone);
   const [gardens, setGardens] = useState(props.userObj.gardens);
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
@@ -23,13 +22,6 @@ function Dashboard(props) {
   const [gardenToDelete, setGardenToDelete] = useState({});
   const [displayedGarden, setDisplayedGarden] = useState(null);
   const userRef = firebase.firestore().collection("users").doc(props.currentUserUID);
-
-  function changeName(newName) {
-    setName(newName);
-    userRef.update({
-      name: newName
-    });
-  }
 
   function changeZone(newZone) {
     setZone(newZone);
@@ -124,19 +116,7 @@ function Dashboard(props) {
 
   return (
     <KeyboardAvoidingView style={styles.dashContainer} behavior="height">
-      <View style={styles.dashTopRowContainer}>
-        <Text style={styles.dashHeader}>{name}'s Gardens</Text>
-        <TouchableOpacity
-          onPress={() => setIsSettingsVisible(true)}
-        >
-          <Ionicons
-            name="settings-sharp"
-            style={styles.dashHeader}
-          />
-        </TouchableOpacity>
-        
-      </View>
-      <View style={styles.dashSecondRowContainer}>
+      <View style={styles.dashTopBar}>
         <TouchableOpacity
           style={[styles.dashTabBtn, (!isScheduleOpen && styles.selectedTab)]}
           onPress={() => setIsScheduleOpen(false)}
@@ -157,11 +137,19 @@ function Dashboard(props) {
             SCHEDULE
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => setIsSettingsVisible(true)}
+        >
+          <Ionicons
+            name="settings-sharp"
+            style={styles.dashHeader}
+          />
+        </TouchableOpacity>
       </View>
       <SettingsModal
         isSettingsVisible={isSettingsVisible}
         setIsSettingsVisible={setIsSettingsVisible}
-        changeName={changeName}
+        email={userRef.email}
         zone={zone}
         changeZone={changeZone}
         setScreen={props.setScreen}

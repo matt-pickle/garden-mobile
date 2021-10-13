@@ -12,7 +12,6 @@ export async function registration(name, zone, email, password) {
         user.sendEmailVerification();
         firebase.firestore().collection("users").doc(user.uid).set({
           email: user.email,
-          name: name,
           zone: zone,
           gardens: []
         });
