@@ -134,10 +134,28 @@ function Dashboard(props) {
             style={styles.dashHeader}
           />
         </TouchableOpacity>
+        
+      </View>
+      <View style={styles.dashSecondRowContainer}>
         <TouchableOpacity
+          style={[styles.dashTabBtn, (!isScheduleOpen && styles.selectedTab)]}
+          onPress={() => setIsScheduleOpen(false)}
+        >
+          <Text
+            style={[styles.tabText, (!isScheduleOpen && styles.selectedTab)]}
+          >
+            GARDEN LIST
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.dashTabBtn, (isScheduleOpen && styles.selectedTab)]}
           onPress={() => setIsScheduleOpen(true)}
         >
-          <Text>OPEN SCHEDULE</Text>
+          <Text
+            style={[styles.tabText, (isScheduleOpen && styles.selectedTab)]}
+          >
+            SCHEDULE
+          </Text>
         </TouchableOpacity>
       </View>
       <SettingsModal

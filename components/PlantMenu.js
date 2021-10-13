@@ -22,7 +22,7 @@ function PlantMenu(props) {
 
     return (
       <TouchableOpacity
-        style={[styles.plantMenuBtn, (props.selectedPlant === item.name && styles.selected)]}
+        style={[styles.plantMenuBtn, (props.selectedPlant === item.name && styles.selectedPlantIcon)]}
         onPress={() => props.setSelectedPlant(item.name)}
         key={index}
       >

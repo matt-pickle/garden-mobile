@@ -2,7 +2,7 @@ import {StyleSheet, Dimensions, StatusBar} from 'react-native';
 
 function createStyleSheet(width) {
   let gridWidth = width * 40 + 4;
-  const windowHeight = Dimensions.get("window").height - StatusBar.currentHeight;
+  const windowHeight = Dimensions.get("window").height;
 
   return StyleSheet.create({
 
