@@ -1,9 +1,11 @@
 import {StyleSheet, Dimensions, StatusBar} from 'react-native';
 
 const darkGreen = "rgb(0,75,20)";
+const lightGreen = "rgb(0,100,30)";
 const cream = "rgb(220,220,175)";
-const boldFont = "Ubuntu_700Bold";
-const lightFont ="Ubuntu_400Regular";
+const brown = "rgb(50,30,0)";
+const boldFont = "Solway_700Bold";
+const lightFont ="Solway_400Regular";
 const windowHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
@@ -17,47 +19,37 @@ const styles = StyleSheet.create({
   //DASHBOARD
 
   dashContainer: {
-    backgroundColor: darkGreen,
+    backgroundColor: brown,
     width: "100%",
-    height: "100%",
-    padding: 15,
-    paddingTop: 15 + StatusBar.currentHeight
+    height: windowHeight,
   }, 
 
-  dashTopRowContainer: {
+  dashTopBar: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingBottom: 15
-  },
-
-  dashSecondRowContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    paddingBottom: 15
+    backgroundColor: darkGreen,
+    padding: 15
   },
 
   dashTabBtn: {
-    borderColor: cream,
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingVertical: 2,
-    paddingHorizontal: 15,
     marginRight: 15
   },
 
   selectedTab: {
-    backgroundColor: cream,
-    color: darkGreen
-  },
-
-  dashHeader: {
-    color: cream,
-    fontSize: 20
+    borderColor: cream,
+    borderBottomWidth: 1,
   },
 
   tabText: {
     color: cream,
-    fontSize: 16
+    fontFamily: lightFont,
+    fontSize: 16,
+    paddingBottom: 2
+  },
+
+  dashIcon: {
+    color: cream,
+    fontSize: 20
   },
 
   //GARDEN LIST

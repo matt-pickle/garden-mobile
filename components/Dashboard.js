@@ -142,7 +142,7 @@ function Dashboard(props) {
         >
           <Ionicons
             name="settings-sharp"
-            style={styles.dashHeader}
+            style={styles.dashIcon}
           />
         </TouchableOpacity>
       </View>

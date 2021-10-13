@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, LogBox, Dimensions} from "react-native";
 import AppLoading from "expo-app-loading";
-import {useFonts, Ubuntu_700Bold, Ubuntu_400Regular} from "@expo-google-fonts/ubuntu";
+import {useFonts, Solway_700Bold, Solway_400Regular} from "@expo-google-fonts/solway";
 import * as firebase from "firebase";
 import firebaseKeys from "./api/firebase-keys";
 import LoadingScreen from "./components/LoadingScreen";
@@ -40,8 +40,8 @@ export default function App() {
   }
 
   let [fontsLoaded] = useFonts({
-    Ubuntu_400Regular,
-    Ubuntu_700Bold
+    Solway_400Regular,
+    Solway_700Bold
   });
 
   let displayedScreen = null;
