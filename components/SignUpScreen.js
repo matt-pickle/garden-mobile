@@ -6,15 +6,12 @@ import {registration} from "../api/firebase-methods";
 import styles from "../styles/styles";
 
 function SignUpScreen(props) {
-  const [name, setName] = useState("");
   const [zone, setZone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSubmit() {
-    if (!name) {
-      Alert.alert("Name is required.");
-    } else if (!zone) {
+    if (!zone) {
       Alert.alert("Plant Hardiness Zone is required");
     } else if (!email) {
       Alert.alert("Email is required");
@@ -33,14 +30,6 @@ function SignUpScreen(props) {
         source={require("../assets/logo.png")}
       />
       <Text style={styles.lightText}>Create a new account:</Text>
-      <TextInput
-        style={styles.inputBox}
-        placeholderTextColor="rgb(120,120,130)"
-        placeholder="Name"
-        maxLength={20}
-        value={name}
-        onChangeText={name => setName(name)}
-      />
       <Text style={styles.lightText}>USDA Plant Hardiness Zone: </Text>
       <Picker
         style={styles.zonePicker}
