@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {View, Text, TouchableOpacity, KeyboardAvoidingView} from "react-native";
 import * as firebase from "firebase";
 import {logOut, updateGardens} from "../api/firebase-methods";
-import { Ionicons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 import SettingsModal from "./SettingsModal";
 import CreateGardenModal from "./CreateGardenModal";
 import DeleteModal from "./DeleteModal";
@@ -117,31 +117,33 @@ function Dashboard(props) {
   return (
     <KeyboardAvoidingView style={styles.dashContainer} behavior="height">
       <View style={styles.dashTopBar}>
-        <TouchableOpacity
-          style={[styles.dashTabBtn, (!isScheduleOpen && styles.selectedTab)]}
-          onPress={() => setIsScheduleOpen(false)}
-        >
-          <Text
-            style={[styles.tabText, (!isScheduleOpen && styles.selectedTab)]}
+        <View style={styles.dashTabContainer}>
+          <TouchableOpacity
+            style={[styles.dashTabBtn, (!isScheduleOpen && styles.selectedTab)]}
+            onPress={() => setIsScheduleOpen(false)}
           >
-            GARDEN LIST
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.dashTabBtn, (isScheduleOpen && styles.selectedTab)]}
-          onPress={() => setIsScheduleOpen(true)}
-        >
-          <Text
-            style={[styles.tabText, (isScheduleOpen && styles.selectedTab)]}
+            <Text
+              style={[styles.tabText, (!isScheduleOpen && styles.selectedTab)]}
+            >
+              GARDEN LIST
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.dashTabBtn, (isScheduleOpen && styles.selectedTab)]}
+            onPress={() => setIsScheduleOpen(true)}
           >
-            SCHEDULE
-          </Text>
-        </TouchableOpacity>
+            <Text
+              style={[styles.tabText, (isScheduleOpen && styles.selectedTab)]}
+            >
+              SCHEDULE
+            </Text>
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity
           onPress={() => setIsSettingsVisible(true)}
         >
-          <Ionicons
-            name="settings-sharp"
+          <Entypo
+            name="dots-three-vertical"
             style={styles.dashIcon}
           />
         </TouchableOpacity>
