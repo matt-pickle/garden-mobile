@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import {View, Text, TouchableOpacity, KeyboardAvoidingView} from "react-native";
+import {KeyboardAvoidingView} from "react-native";
 import * as firebase from "firebase";
 import {logOut, updateGardens} from "../api/firebase-methods";
-import { Entypo } from '@expo/vector-icons';
 import SettingsModal from "./SettingsModal";
 import CreateGardenModal from "./CreateGardenModal";
 import DeleteModal from "./DeleteModal";
+import DashTopBar from "./DashTopBar";
 import GardenList from "./GardenList";
 import GardenEditor from "./GardenEditor";
 import Schedule from "./Schedule";
@@ -93,39 +93,11 @@ function Dashboard(props) {
     props.setScreen("LoginScreen");
   }
 
-  const dashTopBar = 
-    <View style={styles.dashTopBar}>
-      <View style={styles.dashTabContainer}>
-        <TouchableOpacity
-          style={[styles.dashTabBtn, (!isScheduleOpen && styles.selectedTab)]}
-          onPress={() => setIsScheduleOpen(false)}
-        >
-          <Text
-            style={[styles.tabText, (!isScheduleOpen && styles.selectedTab)]}
-          >
-            GARDENS
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.dashTabBtn, (isScheduleOpen && styles.selectedTab)]}
-          onPress={() => setIsScheduleOpen(true)}
-        >
-          <Text
-            style={[styles.tabText, (isScheduleOpen && styles.selectedTab)]}
-          >
-            SCHEDULE
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <TouchableOpacity
-        onPress={() => setIsSettingsVisible(true)}
-      >
-        <Entypo
-          name="dots-three-vertical"
-          style={styles.dashIcon}
-        />
-      </TouchableOpacity>
-    </View>
+  const dashTopBar = <DashTopBar
+    isScheduleOpen={isScheduleOpen}
+    setIsScheduleOpen={setIsScheduleOpen}
+    setIsSettingsVisible={setIsSettingsVisible}
+  />;
 
   const gardenList = <GardenList 
     gardens={gardens}
