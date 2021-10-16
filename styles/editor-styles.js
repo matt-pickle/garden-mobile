@@ -67,7 +67,7 @@ function createStyleSheet(width, height) {
       borderWidth: 2,
       borderColor: darkCream,
       borderRadius: 5,
-      width: 138,
+      width: 140,
       paddingVertical: 5,
       paddingLeft: 10,
       paddingRight: 0,
@@ -83,8 +83,8 @@ function createStyleSheet(width, height) {
 
     picker: {
       color: darkGreen,
-      marginLeft: -5,
-      width: 88,
+      marginLeft: -10,
+      width: 97,
       transform: [
         { scaleX: 0.9 }, 
         { scaleY: 0.9 },
