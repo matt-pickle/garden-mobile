@@ -12,7 +12,7 @@ function GardenEditor(props) {
   const [width, setWidth] = useState(props.displayedGarden.width);
   const [height, setHeight] = useState(props.displayedGarden.height);
   const [selectedPlant, setSelectedPlant] = useState("none");
-  const styles = createStyleSheet(width);
+  const styles = createStyleSheet(width, height);
 
   function createBlankPlantedArr(newWidth, newHeight) {
     let newPlantedArr = [];
@@ -60,6 +60,7 @@ function GardenEditor(props) {
     return (
       <Square 
         id={index}
+        style={styles.square}
         planted={item}
         selectedPlant={selectedPlant}
         changePlantInArr={changePlantInArr}

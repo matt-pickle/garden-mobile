@@ -121,16 +121,6 @@ const styles = StyleSheet.create({
     lineHeight: 80
   },
 
-  //SQUARE
-
-  square: {
-    height: 40,
-    width: 40,
-    backgroundColor: "brown",
-    borderWidth: 2,
-    borderColor: "tan"
-  },
-
   //PLANT MENU
 
   selectedPlantIcon: {

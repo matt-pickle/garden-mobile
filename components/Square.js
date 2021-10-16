@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {Image, TouchableOpacity} from "react-native";
-import styles from "../styles/styles.js";
 
 function Square(props) {
   const [planted, setPlanted] = useState(props.planted);
@@ -22,7 +21,7 @@ function Square(props) {
 
   return (
     <TouchableOpacity
-      style={styles.square}
+      style={props.style}
       onPress={changePlant}
     >
       <Image source={icon} style={{width: "100%", height: "100%"}}/>

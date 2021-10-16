@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions, StatusBar} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 
 const darkGreen = "rgb(0,75,20)";
 const mediumGreen = "rgb(0,100,30)";
@@ -8,10 +8,17 @@ const darkCream = "rgb(200, 200, 150)";
 const brown = "rgb(50,30,0)";
 const boldFont = "Solway_700Bold";
 const lightFont ="Solway_400Regular";
+const windowHeight = Dimensions.get("window").height;
+const windowWidth = Dimensions.get("window").width;
 
-function createStyleSheet(width) {
-  let gridWidth = width * 40 + 4;
-  const windowHeight = Dimensions.get("window").height;
+function createStyleSheet(width, height) {
+  let gridWidth = windowWidth - 30;
+  let squareSize = (gridWidth - 4) / width;
+
+  if (height > width) {
+    squareSize = (gridWidth - 4) / height;
+    gridWidth = squareSize * width + 4;
+  }
 
   return StyleSheet.create({
 
@@ -77,7 +84,7 @@ function createStyleSheet(width) {
     picker: {
       color: darkGreen,
       marginLeft: -5,
-      width: 87,
+      width: 88,
       transform: [
         { scaleX: 0.9 }, 
         { scaleY: 0.9 },
@@ -91,6 +98,14 @@ function createStyleSheet(width) {
       width: gridWidth,
       borderWidth: 2,
       borderColor: "tan"
+    },
+
+    square: {
+      backgroundColor: brown,
+      borderColor: darkCream,
+      borderWidth: 2,
+      width: squareSize,
+      height: squareSize
     }
 
   });
