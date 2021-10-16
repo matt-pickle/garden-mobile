@@ -93,6 +93,40 @@ function Dashboard(props) {
     props.setScreen("LoginScreen");
   }
 
+  const dashTopBar = 
+    <View style={styles.dashTopBar}>
+      <View style={styles.dashTabContainer}>
+        <TouchableOpacity
+          style={[styles.dashTabBtn, (!isScheduleOpen && styles.selectedTab)]}
+          onPress={() => setIsScheduleOpen(false)}
+        >
+          <Text
+            style={[styles.tabText, (!isScheduleOpen && styles.selectedTab)]}
+          >
+            GARDENS
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.dashTabBtn, (isScheduleOpen && styles.selectedTab)]}
+          onPress={() => setIsScheduleOpen(true)}
+        >
+          <Text
+            style={[styles.tabText, (isScheduleOpen && styles.selectedTab)]}
+          >
+            SCHEDULE
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <TouchableOpacity
+        onPress={() => setIsSettingsVisible(true)}
+      >
+        <Entypo
+          name="dots-three-vertical"
+          style={styles.dashIcon}
+        />
+      </TouchableOpacity>
+    </View>
+
   const gardenList = <GardenList 
     gardens={gardens}
     openEditor={openEditor}
@@ -103,7 +137,6 @@ function Dashboard(props) {
   const gardenEditor = <GardenEditor
     displayedGarden={displayedGarden}
     zone={zone}
-    saveGarden={saveGarden}
     saveAndClose={saveAndClose}
     openDeleteModal={openDeleteModal}
   />;
@@ -111,43 +144,11 @@ function Dashboard(props) {
   const schedule = <Schedule
     gardens={gardens}
     zone={zone}
-    setIsScheduleOpen={setIsScheduleOpen}
   />;
 
   return (
     <KeyboardAvoidingView style={styles.dashContainer} behavior="height">
-      <View style={styles.dashTopBar}>
-        <View style={styles.dashTabContainer}>
-          <TouchableOpacity
-            style={[styles.dashTabBtn, (!isScheduleOpen && styles.selectedTab)]}
-            onPress={() => setIsScheduleOpen(false)}
-          >
-            <Text
-              style={[styles.tabText, (!isScheduleOpen && styles.selectedTab)]}
-            >
-              GARDEN LIST
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.dashTabBtn, (isScheduleOpen && styles.selectedTab)]}
-            onPress={() => setIsScheduleOpen(true)}
-          >
-            <Text
-              style={[styles.tabText, (isScheduleOpen && styles.selectedTab)]}
-            >
-              SCHEDULE
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity
-          onPress={() => setIsSettingsVisible(true)}
-        >
-          <Entypo
-            name="dots-three-vertical"
-            style={styles.dashIcon}
-          />
-        </TouchableOpacity>
-      </View>
+      {!isEditorOpen && dashTopBar}
       <SettingsModal
         isSettingsVisible={isSettingsVisible}
         setIsSettingsVisible={setIsSettingsVisible}
