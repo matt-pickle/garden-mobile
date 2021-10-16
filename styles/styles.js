@@ -1,8 +1,10 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
 const darkGreen = "rgb(0,75,20)";
-const lightGreen = "rgb(0,100,30)";
+const mediumGreen = "rgb(0,100,30)";
+const lightGreen = "rgb(0,125,40)";
 const cream = "rgb(255,255,225)";
+const darkCream = "rgb(200, 200, 150)";
 const brown = "rgb(50,30,0)";
 const boldFont = "Solway_700Bold";
 const lightFont ="Solway_400Regular";
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
   //DASHBOARD
 
   dashContainer: {
-    backgroundColor: brown,
+    backgroundColor: lightGreen,
     width: "100%",
     height: "100%",
   }, 
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: lightGreen,
+    backgroundColor: cream,
     width: 60,
     height: 60,
     borderRadius: 100,
@@ -113,7 +115,7 @@ const styles = StyleSheet.create({
   },
 
   newGardenButtonText: {
-    color: cream,
+    color: darkGreen,
     fontFamily: lightFont,
     fontSize: 70,
     lineHeight: 80
@@ -142,6 +144,50 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderColor: "black"
   },
+
+  //SCHEDULE
+
+  schedContainer: {
+    flexGrow: 1,
+    flexDirection: "column",
+    backgroundColor: cream,
+    borderColor: darkCream,
+    borderWidth: 5,
+    borderRadius: 5,
+    padding: 15,
+    margin: 15,
+    elevation: 5
+  },
+
+  schedTitle: {
+    textAlign: "center",
+    color: darkGreen,
+    fontFamily: boldFont,
+    fontSize: 24,
+    borderColor: darkGreen,
+    borderBottomWidth: 3,
+    paddingBottom: 5,
+    marginBottom: 15
+  },
+
+  schedTextContainer: {
+    flexDirection: "row",
+    marginBottom: 15,
+  },
+
+  schedDate: {
+    color: darkGreen,
+    fontFamily: boldFont,
+    fontSize: 14
+  },
+
+  schedText: {
+    flexShrink: 1,
+    color: darkGreen,
+    fontFamily: lightFont,
+    fontSize: 14,
+    lineHeight: 20
+  }
 
 });
 

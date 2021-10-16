@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from "react";
-import {Text, View, TouchableOpacity} from "react-native";
+import React from "react";
+import {Text, View, ScrollView} from "react-native";
 import plantData from "../database/plantData";
 import frostDateData from "../database/frostDateData";
+import styles from "../styles/styles";
 
 function Schedule(props) {
 
@@ -45,25 +46,24 @@ function Schedule(props) {
     const date = new Date(Number(startOfYear) + (dayOfYear * oneDay));
     const monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const dateString = `${monthsArr[date.getMonth()]} ${date.getDate()}`;
-    console.log(date.getMonth())
 
     return {[dateString]: Object.values(item)};
   });
 
   const scheduleArr = readableDatesArr.map((item, index) => {
-    return <Text key={index}>{Object.keys(item)}: {Object.values(item)}</Text>
+    return (
+      <View style={styles.schedTextContainer} key={index}>
+        <Text style={styles.schedDate}>{Object.keys(item)}:  </Text>
+        <Text style={styles.schedText}>{Object.values(item)}</Text>
+      </View>
+    );      
   });
 
   return (
-    <View>
-      <Text>Schedule</Text>
+    <ScrollView style={styles.schedContainer}>
+      <Text style={styles.schedTitle}>SCHEDULE</Text>
       {scheduleArr}
-      <TouchableOpacity
-        onPress={() => props.setIsScheduleOpen(false)}
-      >
-        <Text>BACK</Text>
-      </TouchableOpacity>
-    </View>
+    </ScrollView>
   )
 }
 
