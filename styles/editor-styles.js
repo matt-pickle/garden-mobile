@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet, Dimensions, StatusBar} from 'react-native';
 
 const darkGreen = "rgb(0,75,20)";
 const mediumGreen = "rgb(0,100,30)";
@@ -11,21 +11,30 @@ const lightFont ="Solway_400Regular";
 
 function createStyleSheet(width, height) {
   const windowWidth = Dimensions.get("window").width;
-  const windowHeight = Dimensions.get("window").height;
+  const windowHeight = Dimensions.get("window").height - StatusBar.currentHeight;
 
-  let maxGridWidth = windowWidth - 30;
+  let squareSize = null;
+  let gridWidth = null;
 
-  if (windowWidth > windowHeight) {
-    maxGridWidth = windowHeight - 150;
+  if (windowWidth < windowHeight) {
+    let maxGridHeight = windowHeight - 300;
+    let maxGridWidth = windowWidth - 30;
+    squareSize = Math.floor((maxGridWidth - 4) / width);
+    let gridHeight = squareSize * height + 4;
+    if (gridHeight > maxGridHeight) {
+      squareSize = Math.floor((maxGridHeight - 4) / height);
+    }
+  } else {
+    let maxGridHeight = windowHeight - 130;
+    let maxGridWidth = windowWidth / 2 + 4;
+    squareSize = Math.floor((maxGridWidth - 4) / width);
+    let gridHeight = squareSize * height + 4;
+    if (gridHeight > maxGridHeight) {
+      squareSize = Math.floor((maxGridHeight - 4) / height);
+    }
   }
 
-  let squareSize = Math.floor((maxGridWidth - 4) / width);
-  let gridWidth = (squareSize * width) + 4;
-
-  if (height > width) {
-    squareSize = Math.floor((maxGridWidth - 4) / height);
-    gridWidth = (squareSize * width) + 4;
-  }
+  gridWidth = squareSize * width + 4;
 
   return StyleSheet.create({
 
