@@ -8,16 +8,23 @@ const darkCream = "rgb(200, 200, 150)";
 const brown = "rgb(50,30,0)";
 const boldFont = "Solway_700Bold";
 const lightFont ="Solway_400Regular";
-const windowHeight = Dimensions.get("window").height;
-const windowWidth = Dimensions.get("window").width;
 
 function createStyleSheet(width, height) {
-  let gridWidth = windowWidth - 30;
-  let squareSize = (gridWidth - 4) / width;
+  const windowWidth = Dimensions.get("window").width;
+  const windowHeight = Dimensions.get("window").height;
+
+  let maxGridWidth = windowWidth - 30;
+
+  if (windowWidth > windowHeight) {
+    maxGridWidth = windowHeight - 150;
+  }
+
+  let squareSize = Math.floor((maxGridWidth - 4) / width);
+  let gridWidth = (squareSize * width) + 4;
 
   if (height > width) {
-    squareSize = (gridWidth - 4) / height;
-    gridWidth = squareSize * width + 4;
+    squareSize = Math.floor((maxGridWidth - 4) / height);
+    gridWidth = (squareSize * width) + 4;
   }
 
   return StyleSheet.create({
