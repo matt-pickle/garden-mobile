@@ -92,40 +92,46 @@ function GardenEditor(props) {
           />
         </TouchableOpacity>
       </View>
-      <View style={styles.sizePickerRow}>
-        <View style={styles.pickerContainer}>
-          <Text style={styles.pickerLabel}>Width: </Text>
-          <Picker
-            style={styles.picker}
-            dropdownIconColor="rgb(0,75,20)"
-            mode="dropdown"
-            selectedValue={width}
-            onValueChange={value => changeWidth(value)}
-          >
-            {populatePicker()}
-          </Picker>
+
+      <View style={styles.everythingButTopBarContainer}>
+        <View style={styles.pickerAndGridContainer}>
+          <View style={styles.sizePickerRow}>
+            <View style={styles.pickerContainer}>
+              <Text style={styles.pickerLabel}>Width: </Text>
+              <Picker
+                style={styles.picker}
+                dropdownIconColor="rgb(0,75,20)"
+                mode="dropdown"
+                selectedValue={width}
+                onValueChange={value => changeWidth(value)}
+              >
+                {populatePicker()}
+              </Picker>
+            </View>
+            <View style={styles.pickerContainer}>
+              <Text style={styles.pickerLabel}>Height: </Text>
+              <Picker
+                style={styles.picker}
+                dropdownIconColor="rgb(0,75,20)"
+                mode="dropdown"
+                selectedValue={height}
+                onValueChange={value => changeHeight(value)}
+              >
+                {populatePicker()}
+              </Picker>
+            </View>
+          </View>
+          <View style={styles.gridContainer}>
+            {gridArr}
+          </View>
         </View>
-        <View style={styles.pickerContainer}>
-          <Text style={styles.pickerLabel}>Height: </Text>
-          <Picker
-            style={styles.picker}
-            dropdownIconColor="rgb(0,75,20)"
-            mode="dropdown"
-            selectedValue={height}
-            onValueChange={value => changeHeight(value)}
-          >
-            {populatePicker()}
-          </Picker>
-        </View>
+        <PlantMenu
+          styles={styles}
+          setSelectedPlant={setSelectedPlant}
+          selectedPlant={selectedPlant}
+          zone={props.zone}
+        />
       </View>
-      <View style={styles.gridContainer}>
-        {gridArr}
-      </View>
-      <PlantMenu
-        setSelectedPlant={setSelectedPlant}
-        selectedPlant={selectedPlant}
-        zone={props.zone}
-      />
     </View>
   )
 }

@@ -1,9 +1,13 @@
-import React from "react";
-import {View, Image, TouchableOpacity} from "react-native";
+import React, {useState, useEffect} from "react";
+import {View, ScrollView, Text, Image, TouchableOpacity, Dimensions} from "react-native";
 import plantData from "../database/plantData.js";
-import styles from "../styles/styles.js";
 
 function PlantMenu(props) {
+  let isMenuHorizontal = true;
+  const dim = Dimensions.get("screen");
+  if (dim.width > dim.height) {
+    isMenuHorizontal = false;
+  }
 
   const plantableArr = plantData.filter(item => {
     return item.zones.includes(props.zone);
@@ -22,7 +26,7 @@ function PlantMenu(props) {
 
     return (
       <TouchableOpacity
-        style={[styles.plantMenuBtn, (props.selectedPlant === item.name && styles.selectedPlantIcon)]}
+        style={[props.styles.menuButton, (props.selectedPlant === item.name && props.styles.selectedPlantIcon)]}
         onPress={() => props.setSelectedPlant(item.name)}
         key={index}
       >
@@ -32,8 +36,16 @@ function PlantMenu(props) {
   });
 
   return (
-    <View>
-      {menu}
+    <View style={props.styles.menuContainer}>
+      <Text style={props.styles.selectedPlantName}>
+        {props.selectedPlant}
+      </Text>
+      <ScrollView 
+        style={props.styles.menuBtnsContainer}
+        horizontal={isMenuHorizontal}
+      >
+        {menu}
+      </ScrollView>
     </View>
   );
 }

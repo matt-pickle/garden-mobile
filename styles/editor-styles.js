@@ -15,6 +15,10 @@ function createStyleSheet(width, height) {
 
   let squareSize = null;
   let gridWidth = null;
+  let mainFlexDirection = "column";
+  let mainAlignItems = "center";
+  let plantMenuWidth = windowWidth - 30;
+  let plantMenuHeight = 130;
 
   if (windowWidth < windowHeight) {
     let maxGridHeight = windowHeight - 300;
@@ -25,13 +29,17 @@ function createStyleSheet(width, height) {
       squareSize = Math.floor((maxGridHeight - 4) / height);
     }
   } else {
-    let maxGridHeight = windowHeight - 130;
-    let maxGridWidth = windowWidth / 2 + 4;
+    let maxGridHeight = windowHeight - 135;
+    let maxGridWidth = windowWidth - 240;
     squareSize = Math.floor((maxGridWidth - 4) / width);
     let gridHeight = squareSize * height + 4;
     if (gridHeight > maxGridHeight) {
       squareSize = Math.floor((maxGridHeight - 4) / height);
     }
+    mainFlexDirection = "row";
+    mainAlignItems = "flex-start";
+    plantMenuWidth = 180;
+    plantMenuHeight = windowHeight - 75;
   }
 
   gridWidth = squareSize * width + 4;
@@ -48,9 +56,9 @@ function createStyleSheet(width, height) {
       justifyContent: "space-between",
       alignItems: "center",
       width: "100%",
+      height: 45,
       backgroundColor: darkGreen,
-      padding: 10,
-      paddingVertical: 5,
+      paddingHorizontal: 10,
       marginBottom: 15,
       elevation: 5
     },
@@ -69,6 +77,19 @@ function createStyleSheet(width, height) {
     trashIcon: {
       color: cream,
       fontSize: 20
+    },
+
+    everythingButTopBarContainer: {
+      flexDirection: mainFlexDirection,
+      justifyContent: "space-between",
+      alignItems: mainAlignItems,
+      height: windowHeight - 60
+    },
+
+    pickerAndGridContainer: {
+      flexGrow: 1,
+      flexDirection: "column",
+      alignItems: "center"
     },
 
     sizePickerRow: {
@@ -108,12 +129,12 @@ function createStyleSheet(width, height) {
     },
 
     gridContainer: {
-      backgroundColor: "blue",
+      backgroundColor: brown,
       flexDirection: "row",
       flexWrap: "wrap",
       width: gridWidth,
       borderWidth: 2,
-      borderColor: "tan"
+      borderColor: darkCream
     },
 
     square: {
@@ -122,6 +143,50 @@ function createStyleSheet(width, height) {
       borderWidth: 2,
       width: squareSize,
       height: squareSize
+    },
+
+    //PLANT MENU
+
+    menuContainer: {
+      flexDirection: "column",
+      alignItems: "center",
+      width: plantMenuWidth,
+      height: plantMenuHeight,
+      backgroundColor: darkGreen,
+      borderRadius: 5,
+      padding: 10,
+      marginHorizontal: 15,
+      elevation: 5
+    },
+
+    selectedPlantName: {
+      width: 150,
+      textAlign: "center",
+      color: darkGreen,
+      fontFamily: lightFont,
+      fontSize: 16,
+      backgroundColor: cream,
+      borderRadius: 5,
+      padding: 5,
+      marginBottom: 15
+    },
+
+    menuBtnsContainer: {
+      // flexDirection: "row"
+    },
+
+    menuButton: {
+      width: 50,
+      height: 50,
+      backgroundColor: cream,
+      borderColor: darkCream,
+      borderWidth: 3,
+      borderRadius: 5,
+      marginRight: 5
+    },
+
+    selectedPlantIcon: {
+      borderColor: "gold"
     }
 
   });
