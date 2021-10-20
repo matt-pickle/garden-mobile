@@ -23,7 +23,7 @@
     },
     "androidNavigationBar": {
       "barStyle": "light-content",
-      "backgroundColor": "#007D28"
+      "backgroundColor": "#004B14"
     },
     "ios": {
       "supportsTablet": true

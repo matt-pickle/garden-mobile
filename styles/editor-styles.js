@@ -13,15 +13,21 @@ function createStyleSheet(width, height) {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height - StatusBar.currentHeight;
 
+  const topBarHeight = 45;
+
   let squareSize = null;
   let gridWidth = null;
   let mainFlexDirection = "column";
   let mainAlignItems = "center";
-  let plantMenuWidth = windowWidth - 30;
-  let plantMenuHeight = 130;
+  let plantMenuFlexDir = "column";
+  let plantMenuWidth = windowWidth;
+  let plantMenuHeight = 124;
+  let plantNameWidth = 150;
+  let plantNameHeight = 30
+  let menuBtnsContHeight = 70;
 
   if (windowWidth < windowHeight) {
-    let maxGridHeight = windowHeight - 300;
+    let maxGridHeight = windowHeight - topBarHeight - plantMenuHeight - 90;
     let maxGridWidth = windowWidth - 30;
     squareSize = Math.floor((maxGridWidth - 4) / width);
     let gridHeight = squareSize * height + 4;
@@ -29,7 +35,7 @@ function createStyleSheet(width, height) {
       squareSize = Math.floor((maxGridHeight - 4) / height);
     }
   } else {
-    let maxGridHeight = windowHeight - 135;
+    let maxGridHeight = windowHeight - topBarHeight - 90;
     let maxGridWidth = windowWidth - 240;
     squareSize = Math.floor((maxGridWidth - 4) / width);
     let gridHeight = squareSize * height + 4;
@@ -38,8 +44,12 @@ function createStyleSheet(width, height) {
     }
     mainFlexDirection = "row";
     mainAlignItems = "flex-start";
-    plantMenuWidth = 180;
-    plantMenuHeight = windowHeight - 75;
+    plantMenuFlexDir = "row";
+    plantMenuWidth = 124;
+    plantMenuHeight = windowHeight - topBarHeight;
+    plantNameWidth = 30;
+    plantNameHeight = 200;
+    menuBtnsContHeight = windowHeight - topBarHeight;
   }
 
   gridWidth = squareSize * width + 4;
@@ -56,10 +66,9 @@ function createStyleSheet(width, height) {
       justifyContent: "space-between",
       alignItems: "center",
       width: "100%",
-      height: 45,
+      height: topBarHeight,
       backgroundColor: darkGreen,
       paddingHorizontal: 10,
-      marginBottom: 15,
       elevation: 5
     },
 
@@ -83,13 +92,14 @@ function createStyleSheet(width, height) {
       flexDirection: mainFlexDirection,
       justifyContent: "space-between",
       alignItems: mainAlignItems,
-      height: windowHeight - 60
+      height: windowHeight - 45
     },
 
     pickerAndGridContainer: {
       flexGrow: 1,
       flexDirection: "column",
-      alignItems: "center"
+      alignItems: "center",
+      marginTop: 15
     },
 
     sizePickerRow: {
@@ -148,19 +158,17 @@ function createStyleSheet(width, height) {
     //PLANT MENU
 
     menuContainer: {
-      flexDirection: "column",
+      flexDirection: plantMenuFlexDir,
       alignItems: "center",
       width: plantMenuWidth,
       height: plantMenuHeight,
       backgroundColor: darkGreen,
-      borderRadius: 5,
-      padding: 10,
-      marginHorizontal: 15,
-      elevation: 5
+      paddingTop: 15
     },
 
     selectedPlantName: {
-      width: 150,
+      width: plantNameWidth,
+      height: plantNameHeight,
       textAlign: "center",
       color: darkGreen,
       fontFamily: lightFont,
@@ -168,11 +176,14 @@ function createStyleSheet(width, height) {
       backgroundColor: cream,
       borderRadius: 5,
       padding: 5,
-      marginBottom: 15
+      marginHorizontal: 15,
+      marginBottom: 10
     },
 
     menuBtnsContainer: {
-      // flexDirection: "row"
+      flexDirection: "column",
+      alignItems: "center",
+      height: menuBtnsContHeight
     },
 
     menuButton: {
@@ -182,7 +193,7 @@ function createStyleSheet(width, height) {
       borderColor: darkCream,
       borderWidth: 3,
       borderRadius: 5,
-      marginRight: 5
+      margin: 5
     },
 
     selectedPlantIcon: {

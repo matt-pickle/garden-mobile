@@ -40,12 +40,14 @@ function PlantMenu(props) {
       <Text style={props.styles.selectedPlantName}>
         {props.selectedPlant}
       </Text>
-      <ScrollView 
-        style={props.styles.menuBtnsContainer}
-        horizontal={isMenuHorizontal}
-      >
-        {menu}
-      </ScrollView>
+      <View style={props.styles.menuBtnsContainer}>
+        <ScrollView
+          horizontal={isMenuHorizontal}
+          persistentScrollbar={true}
+        >
+          {menu}
+        </ScrollView>
+      </View>
     </View>
   );
 }
