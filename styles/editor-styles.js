@@ -25,6 +25,7 @@ function createStyleSheet(width, height) {
   let plantNameWidth = 150;
   let plantNameHeight = 30
   let menuBtnsContHeight = 70;
+  let menuBtnMarginRight = 5;
 
   if (windowWidth < windowHeight) {
     let maxGridHeight = windowHeight - topBarHeight - plantMenuHeight - 90;
@@ -50,6 +51,7 @@ function createStyleSheet(width, height) {
     plantNameWidth = 30;
     plantNameHeight = 200;
     menuBtnsContHeight = windowHeight - topBarHeight;
+    menuBtnMarginRight = 15;
   }
 
   gridWidth = squareSize * width + 4;
@@ -176,7 +178,8 @@ function createStyleSheet(width, height) {
       backgroundColor: cream,
       borderRadius: 5,
       padding: 5,
-      marginHorizontal: 15,
+      marginRight: 10,
+      marginLeft: 15,
       marginBottom: 10
     },
 
@@ -193,7 +196,8 @@ function createStyleSheet(width, height) {
       borderColor: darkCream,
       borderWidth: 3,
       borderRadius: 5,
-      margin: 5
+      margin: 5,
+      marginRight: menuBtnMarginRight
     },
 
     selectedPlantIcon: {
