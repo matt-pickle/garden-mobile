@@ -168,19 +168,24 @@ function createStyleSheet(width, height) {
       paddingTop: 15
     },
 
-    selectedPlantName: {
+    selectedPlantContainer: {
+      flexDirection: "column",
+      justifyContent: "center",
       width: plantNameWidth,
       height: plantNameHeight,
-      textAlign: "center",
-      color: darkGreen,
-      fontFamily: lightFont,
-      fontSize: 16,
       backgroundColor: cream,
       borderRadius: 5,
-      padding: 5,
       marginRight: 10,
       marginLeft: 15,
       marginBottom: 10
+    },
+
+    selectedPlantText: {
+      color: darkGreen,
+      fontFamily: lightFont,
+      fontSize: 16,
+      textAlign: "center",
+      textTransform: "uppercase"
     },
 
     menuBtnsContainer: {

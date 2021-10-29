@@ -35,11 +35,24 @@ function PlantMenu(props) {
     );
   });
 
+  const selectedPlantText = isMenuHorizontal ?
+    <Text style={props.styles.selectedPlantText}>{props.selectedPlant}</Text> :
+    props.selectedPlant.split("").map((item, index) => {
+      return (
+        <Text 
+          style={props.styles.selectedPlantText}
+          key={index}
+        >
+          {item}
+        </Text>
+      )
+    });
+
   return (
     <View style={props.styles.menuContainer}>
-      <Text style={props.styles.selectedPlantName}>
-        {props.selectedPlant}
-      </Text>
+      <View style={props.styles.selectedPlantContainer}>
+        {selectedPlantText}
+      </View>
       <View style={props.styles.menuBtnsContainer}>
         <ScrollView
           horizontal={isMenuHorizontal}
