@@ -14,8 +14,86 @@ const styles = StyleSheet.create({
 
   //LOGIN SCREENS
 
-  logo: {
-    height: 100
+  loginScreen: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: lightGreen,
+    height: "100%"
+  },
+
+  loginText: {
+    color: cream,
+    fontFamily: lightFont,
+    fontSize: 18,
+    marginBottom: 15
+  },
+
+  inputBox: {
+    backgroundColor: cream,
+    color: darkGreen,
+    width: 280,
+    textAlign: "center",
+    fontFamily: lightFont,
+    fontSize: 20,
+    borderRadius: 5,
+    paddingVertical: 5,
+    marginBottom: 15
+  },
+
+  pickerContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: cream,
+    borderWidth: 2,
+    borderColor: darkCream,
+    borderRadius: 5,
+    paddingVertical: 5,
+    marginBottom: 20,
+    elevation: 5
+  },
+
+  pickerLabel: {
+    color: darkGreen,
+    fontFamily: lightFont,
+    fontSize: 16
+  },
+
+  zonePicker: {
+    color: darkGreen,
+    width: 90,
+    marginRight: -5
+  },
+
+  loginButton: {
+    backgroundColor: darkGreen,
+    color: cream,
+    fontFamily: boldFont,
+    fontSize: 20,
+    borderRadius: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 20,
+    marginBottom: 15,
+    elevation: 5
+  },
+
+  extraMarginBottom: {
+    marginBottom: 30
+  },
+
+  smallLink: {
+    color: cream,
+    fontFamily: lightFont,
+    fontSize: 14,
+    borderColor: cream,
+    borderBottomWidth: 1,
+    marginBottom: 25
+  },
+
+  backArrow: {
+    color: cream,
+    fontFamily: boldFont,
+    fontSize: 30
   },
 
   //DASHBOARD

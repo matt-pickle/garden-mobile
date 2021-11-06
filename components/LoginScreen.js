@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {View, Text, TextInput, Alert, Image} from "react-native";
+import {View, Text, TextInput, Alert} from "react-native";
 import {TouchableOpacity} from "react-native-gesture-handler";
 import {logIn, logOut} from "../api/firebase-methods";
 import styles from "../styles/styles";
@@ -23,11 +23,7 @@ function LoginScreen(props) {
 
   return (
     <View style={styles.loginScreen}>
-      <Image
-        style={styles.logo}
-        source={require("../assets/logo.png")}
-      />
-      <Text style={styles.lightText}>Log in to your account:</Text>
+      <Text style={styles.loginText}>Log in to your account:</Text>
       <TextInput
         style={styles.inputBox}
         placeholderTextColor="rgb(120,120,130)"
@@ -51,9 +47,9 @@ function LoginScreen(props) {
       <TouchableOpacity onPress={() => props.setScreen("ResetScreen")}>
         <Text style={styles.smallLink}>Forgot password?</Text>
       </TouchableOpacity>
-      <Text style={styles.lightText}>Don't have an account?</Text>
+      <Text style={styles.loginText}>Don't have an account?</Text>
       <TouchableOpacity onPress={() => props.setScreen("SignUpScreen")}>
-        <Text style={styles.boldText}>SIGN UP</Text>
+        <Text style={styles.loginButton}>SIGN UP</Text>
       </TouchableOpacity>
     </View>
   );

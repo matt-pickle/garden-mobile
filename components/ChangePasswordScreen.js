@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {View, Text, TextInput, Alert, Image} from "react-native";
+import {View, Text, TextInput, Alert} from "react-native";
 import {TouchableOpacity} from "react-native-gesture-handler";
 import { Ionicons } from '@expo/vector-icons';
 import {changePassword} from "../api/firebase-methods";
@@ -25,10 +25,6 @@ function ChangePasswordScreen(props) {
 
   return (
     <View style={styles.loginScreen}>
-      <Image
-        style={styles.logo}
-        source={require("../assets/logo.png")}
-      />
       <TextInput
         style={styles.inputBox}
         placeholderTextColor="rgb(120,120,130)"
@@ -59,16 +55,14 @@ function ChangePasswordScreen(props) {
         <Text style={styles.loginButton}>SUBMIT</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => props.setScreen("ResetScreen")}>
-        <Text style={styles.smallLink}>Forgot password?</Text>
+        <Text style={[styles.smallLink, styles.extraMarginBottom]}>Forgot password?</Text>
       </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.backButton}
+      <TouchableOpacity
         onPress={() => props.setScreen("Dashboard")}>
         <Ionicons
           name="arrow-back"
           style={styles.backArrow}
         />
-        <Text style={styles.boldText}>GO BACK</Text>
       </TouchableOpacity>
     </View>
   );
