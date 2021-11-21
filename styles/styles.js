@@ -81,6 +81,10 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
 
+  noMarginBottom: {
+    marginBottom: 0
+  },
+
   smallLink: {
     color: cream,
     fontFamily: lightFont,
@@ -241,6 +245,107 @@ const styles = StyleSheet.create({
     fontFamily: lightFont,
     fontSize: 14,
     lineHeight: 20
+  },
+
+  //MODALS
+
+  modal: {
+    flexDirection: "column",
+    alignSelf: "center",
+    alignItems: "flex-start",
+    backgroundColor: cream,
+    borderColor: darkCream,
+    borderWidth: 3,
+    borderRadius: 5,
+    width: 300,
+    padding: 15,
+    paddingTop: 10,
+    marginTop: 25,
+    elevation: 5
+  },
+
+  centeredModal: {
+    alignItems: "center"
+  },
+
+  modalTopRowContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%"
+  },
+
+  modalHeader: {
+    color: darkGreen,
+    fontFamily: boldFont,
+    fontSize: 18,
+    marginBottom: 15
+  },
+
+  modalX: {
+    color: darkGreen,
+    fontFamily: boldFont,
+    fontSize: 24,
+    marginTop: -15,
+    marginRight: -5
+  },
+
+  modalText: {
+    color: darkGreen,
+    fontFamily: lightFont,
+    fontSize: 16,
+    marginBottom: 15
+  },
+
+  modalPickerContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: cream,
+    borderWidth: 2,
+    borderColor: darkCream,
+    borderRadius: 5,
+    paddingVertical: 5,
+    marginTop: -10,
+    marginBottom: 15
+  },
+
+  modalPicker: {
+    color: darkGreen,
+    width: 90,
+    marginRight: -5
+  },
+
+  modalInput: {
+    textAlign: "center",
+    width: 230,
+    color: darkGreen,
+    fontFamily: lightFont,
+    fontSize: 16,
+    borderColor: darkCream,
+    borderWidth: 2,
+    borderRadius: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    marginTop: 0,
+    marginBottom: 15
+  },
+
+  modalButton: {
+    backgroundColor: darkCream,
+    color: darkGreen,
+    fontFamily: boldFont,
+    fontSize: 16,
+    borderRadius: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
+    marginBottom: 15
+  },
+
+  modalButtonRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "65%",
+    marginBottom: -15
   }
 
 });

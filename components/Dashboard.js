@@ -22,7 +22,7 @@ function Dashboard(props) {
   const [gardenToDelete, setGardenToDelete] = useState({});
   const [displayedGarden, setDisplayedGarden] = useState(null);
   const userRef = firebase.firestore().collection("users").doc(props.currentUserUID);
-
+  
   function changeZone(newZone) {
     setZone(newZone);
     userRef.update({
@@ -124,7 +124,7 @@ function Dashboard(props) {
       <SettingsModal
         isSettingsVisible={isSettingsVisible}
         setIsSettingsVisible={setIsSettingsVisible}
-        email={userRef.email}
+        email={props.userObj.email}
         zone={zone}
         changeZone={changeZone}
         setScreen={props.setScreen}
