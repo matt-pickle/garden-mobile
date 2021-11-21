@@ -16,6 +16,7 @@ function SettingsModal(props) {
         <View style={styles.modalTopRowContainer}>
           <Text style={styles.modalHeader}>SETTINGS</Text>
           <TouchableOpacity
+            style={styles.modalXButton}
             onPress={() => props.setIsSettingsVisible(false)}
           >
             <Ionicons

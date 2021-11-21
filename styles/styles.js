@@ -286,6 +286,9 @@ const styles = StyleSheet.create({
     color: darkGreen,
     fontFamily: boldFont,
     fontSize: 24,
+  },
+
+  modalXButton: {
     marginTop: -15,
     marginRight: -5
   },
