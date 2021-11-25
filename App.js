@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, LogBox, Dimensions} from "react-native";
 import AppLoading from "expo-app-loading";
+import {StatusBar} from "expo-status-bar";
 import {useFonts, Solway_700Bold, Solway_400Regular} from "@expo-google-fonts/solway";
 import * as firebase from "firebase";
 import firebaseKeys from "./api/firebase-keys";
@@ -74,6 +75,10 @@ export default function App() {
   } else {
     return (
       <View>
+        <StatusBar
+          style="light"
+          translucent={false}
+        />
         {displayedScreen}
       </View>
     );
