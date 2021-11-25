@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {View, Image, ActivityIndicator, Alert} from "react-native";
+import {View, ActivityIndicator, Alert} from "react-native";
 import * as firebase from "firebase";
 import styles from "../styles/styles";
 
@@ -27,10 +27,6 @@ function LoadingScreen(props) {
 
   return (
     <View style={styles.loginScreen}>
-      <Image
-        style={styles.logo}
-        source={require("../assets/logo.png")}
-      />
       <ActivityIndicator 
         style={styles.activityIndicator}
         size="large"
