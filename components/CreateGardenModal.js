@@ -6,7 +6,7 @@ function CreateGardenModal(props) {
   const [gardenName, setGardenName] = useState("");
 
   function handleOK() {
-    props.createNewGarden(gardenName, zone);
+    props.createNewGarden(gardenName);
     setGardenName("");
   }
 

@@ -30,12 +30,11 @@ function Dashboard(props) {
     });
   }
 
-  function createNewGarden(gardenName, zone) {
+  function createNewGarden(gardenName) {
     const timestamp = Date.now();
     let updatedGardensArr = [...gardens, {
       id: timestamp,
       gardenName: gardenName,
-      zone: zone,
       width: 4,
       height: 4,
       plantedArr: []
@@ -57,7 +56,6 @@ function Dashboard(props) {
     updatedGardensArr.push({
       id: displayedGarden.id,
       gardenName: displayedGarden.gardenName,
-      zone: displayedGarden.zone,
       width: width,
       height: height,
       plantedArr: plantedArr
