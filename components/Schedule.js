@@ -63,6 +63,7 @@ function Schedule(props) {
     <ScrollView style={styles.schedContainer}>
       <Text style={styles.schedTitle}>SCHEDULE</Text>
       {scheduleArr}
+      <Text style={styles.schedText}></Text>
     </ScrollView>
   )
 }
