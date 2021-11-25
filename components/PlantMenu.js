@@ -19,8 +19,26 @@ function PlantMenu(props) {
       case "broccoli":
         icon = require("../assets/plant-icons/broccoli.png");
         break;
+      case "carrot":
+        icon = require("../assets/plant-icons/carrot.png");
+        break;
+      case "lettuce":
+        icon = require("../assets/plant-icons/lettuce.png");
+        break;
       case "onion":
         icon = require("../assets/plant-icons/onion.png");
+        break;
+      case "potato":
+        icon = require("../assets/plant-icons/potato.png");
+        break;
+      case "spinach":
+        icon = require("../assets/plant-icons/spinach.png");
+        break;
+      case "sweet potato":
+        icon = require("../assets/plant-icons/sweet-potato.png");
+        break;
+      case "tomato":
+        icon = require("../assets/plant-icons/tomato.png");
         break;
     }
 
