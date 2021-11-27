@@ -29,6 +29,42 @@ export default plantData = [
   },
 
   {
+    name: "cucumber",
+    perSquareFoot: 2,
+    zones: ["4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b","12a","12b"],
+    startDate: 7,
+    startMessage: "Sow cucumber seeds in the garden (2 per square foot)",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 70,
+    harvestMessage: "Harvest cucumbers continually, before they turn yellow"
+  },
+
+  {
+    name: "green bean",
+    perSquareFoot: 9,
+    zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: 2,
+    startMessage: "Sow green bean seeds in the garden (9 per square foot)",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 58,
+    harvestMessage: "Harvest green beans"
+  },
+
+  {
+    name: "jalapeno",
+    perSquareFoot: 1,
+    zones: ["5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: -35,
+    startMessage: "Start jalapeno seeds indoors",
+    transplantDate: 14,
+    transplantMessage: "Transplant jalapenos to garden (1 per square foot)",
+    harvestDate: 84,
+    harvestMessage: "Harvest jalapenos"
+  },
+
+  {
     name: "lettuce",
     perSquareFoot: 4,
     zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
@@ -73,7 +109,31 @@ export default plantData = [
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 14,
-    harvestMessage: "Harvest lettuce, starting with outer leaves. Continue harvesting until the plant bolts."
+    harvestMessage: "Harvest lettuce, starting with outer leaves. Continue harvesting until the plant bolts"
+  },
+
+  {
+    name: "sugar snap pea",
+    perSquareFoot: 8,
+    zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: -35,
+    startMessage: "Sow sugar snap pea seeds in the garden (8 per square foot)",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 21,
+    harvestMessage: "Harvest sugar snap peas"
+  },
+
+  {
+    name: "sweet pea",
+    perSquareFoot: 1,
+    zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: -35,
+    startMessage: "Sow sweet pea seeds in the garden (1 per square foot)",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 21,
+    harvestMessage: "Harvest sweet peas"
   },
 
   {
