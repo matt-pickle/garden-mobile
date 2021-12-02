@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {KeyboardAvoidingView} from "react-native";
 import * as firebase from "firebase";
 import {logOut, updateGardens} from "../api/firebase-methods";
+import {AdMobInterstitial} from "expo-ads-admob";
 import SettingsModal from "./SettingsModal";
 import CreateGardenModal from "./CreateGardenModal";
 import DeleteModal from "./DeleteModal";
@@ -44,9 +45,13 @@ function Dashboard(props) {
     setIsCreateGardenModalVisible(false);
   }
 
-  function openEditor(garden) {
+  async function openEditor(garden) {
     setDisplayedGarden(garden);
     setIsEditorOpen(true);
+    if (Math.random() < .1) {
+      await AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); //Test ID
+      await AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
+    }
   }
 
   function saveGarden(width, height, plantedArr) {
@@ -64,8 +69,11 @@ function Dashboard(props) {
     updateGardens(userRef, updatedGardensArr);   
   }
 
-  function saveAndClose(width, height, plantedArr) {
+  async function saveAndClose(width, height, plantedArr) {
     saveGarden(width, height, plantedArr);
+    if (await AdMobInterstitial.getIsReadyAsync()) {
+      await AdMobInterstitial.showAdAsync();
+    }
     setIsEditorOpen(false);
     setDisplayedGarden(null);
   }
