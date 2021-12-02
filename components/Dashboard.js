@@ -48,7 +48,7 @@ function Dashboard(props) {
   async function openEditor(garden) {
     setDisplayedGarden(garden);
     setIsEditorOpen(true);
-    if (Math.random() < .1) {
+    if (Math.random() < .2) {
       await AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); //Test ID
       await AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
     }
