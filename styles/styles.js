@@ -1,11 +1,9 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
 const darkGreen = "rgb(0,75,20)";
-const mediumGreen = "rgb(0,100,30)";
 const lightGreen = "rgb(0,125,40)";
 const cream = "rgb(255,255,225)";
 const darkCream = "rgb(200, 200, 150)";
-const brown = "rgb(50,30,0)";
 const boldFont = "Solway_700Bold";
 const lightFont ="Solway_400Regular";
 const windowHeight = Dimensions.get("window").height;

@@ -1,7 +1,6 @@
 import {StyleSheet, Dimensions, StatusBar} from 'react-native';
 
 const darkGreen = "rgb(0,75,20)";
-const mediumGreen = "rgb(0,100,30)";
 const lightGreen = "rgb(0,125,40)";
 const cream = "rgb(255,255,225)";
 const darkCream = "rgb(200, 200, 150)";
