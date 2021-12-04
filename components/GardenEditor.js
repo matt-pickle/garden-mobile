@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Text, View, TouchableOpacity} from "react-native";
+import React, {useState, useEffect} from "react";
+import {Text, View, TouchableOpacity, BackHandler} from "react-native";
 import {Picker} from "@react-native-picker/picker";
 import uuid from "react-native-uuid";
 import { Ionicons } from '@expo/vector-icons';
@@ -13,6 +13,16 @@ function GardenEditor(props) {
   const [height, setHeight] = useState(props.displayedGarden.height);
   const [selectedPlant, setSelectedPlant] = useState("none");
   const styles = createStyleSheet(width, height);
+
+  //Make Android "Back" button save and close editor
+  useEffect(() => {
+    function backAction() {
+      props.saveAndClose(width, height, plantedArr);
+      return true;
+    }
+    const backHandler = BackHandler.addEventListener("hardwareBackPress", backAction);
+    return () => backHandler.remove();
+  });
 
   function createBlankPlantedArr(newWidth, newHeight) {
     let newPlantedArr = [];
