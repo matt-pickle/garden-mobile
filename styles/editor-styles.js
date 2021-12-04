@@ -24,7 +24,9 @@ function createStyleSheet(width, height) {
   let plantMenuHeight = 124;
   let plantNameWidth = 150;
   let plantNameHeight = 30
-  let menuBtnsContHeight = 70;
+  let menuBtnsContHeight = 65;
+  let menuBtnMarginVertical = 0;
+  let menuBtnMarginLeft = 5;
   let menuBtnMarginRight = 5;
 
   if (windowWidth < windowHeight) {
@@ -51,6 +53,8 @@ function createStyleSheet(width, height) {
     plantNameWidth = 30;
     plantNameHeight = 200;
     menuBtnsContHeight = windowHeight - topBarHeight;
+    menuBtnMarginVertical = 5;
+    menuBtnMarginLeft = 0;
     menuBtnMarginRight = 15;
   }
 
@@ -164,8 +168,7 @@ function createStyleSheet(width, height) {
       alignItems: "center",
       width: plantMenuWidth,
       height: plantMenuHeight,
-      backgroundColor: darkGreen,
-      paddingTop: 15
+      backgroundColor: darkGreen
     },
 
     selectedPlantContainer: {
@@ -175,9 +178,7 @@ function createStyleSheet(width, height) {
       height: plantNameHeight,
       backgroundColor: cream,
       borderRadius: 5,
-      marginRight: 10,
-      marginLeft: 15,
-      marginBottom: 10
+      margin: 15
     },
 
     selectedPlantText: {
@@ -201,7 +202,8 @@ function createStyleSheet(width, height) {
       borderColor: darkCream,
       borderWidth: 3,
       borderRadius: 5,
-      margin: 5,
+      marginVertical: menuBtnMarginVertical,
+      marginLeft: menuBtnMarginLeft,
       marginRight: menuBtnMarginRight
     },
 
