@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const darkGreen = "rgb(0,75,20)";
 const lightGreen = "rgb(0,125,40)";
@@ -6,7 +6,8 @@ const cream = "rgb(255,255,225)";
 const darkCream = "rgb(200, 200, 150)";
 const boldFont = "Solway_700Bold";
 const lightFont ="Solway_400Regular";
-const windowHeight = Dimensions.get("window").height;
+
+const topBarHeight = 45;
 
 const styles = StyleSheet.create({
 
@@ -104,13 +105,15 @@ const styles = StyleSheet.create({
     backgroundColor: lightGreen,
     width: "100%",
     height: "100%",
+    paddingBottom: topBarHeight
   }, 
 
   dashTopBar: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     backgroundColor: darkGreen,
-    padding: 10,
+    height: topBarHeight,
     paddingLeft: 15,
     elevation: 5
   },
@@ -144,7 +147,7 @@ const styles = StyleSheet.create({
 
   listContainer: {
     maxHeight: "100%",
-    padding: 15
+    paddingHorizontal: 5
   },
 
   list: {
@@ -156,7 +159,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     backgroundColor: cream,
     borderRadius: 5,
-    marginBottom: 15,
+    marginTop: 15,
+    marginHorizontal: 10,
     elevation: 5
   },
 
@@ -191,6 +195,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 100,
+    margin: 15,
     elevation: 5
   },
 
