@@ -7,17 +7,11 @@ import styles from "../styles/styles";
 function DashTopBar(props) {    
 
   async function openSchedule() {
+    props.displayAd();
     props.setIsScheduleOpen(true);
-    if (Math.random() < .2) {
-      await AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); //Test ID
-      await AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
-    }
   }
 
   async function closeSchedule() {
-    if (await AdMobInterstitial.getIsReadyAsync()) {
-      await AdMobInterstitial.showAdAsync();
-    }
     props.setIsScheduleOpen(false);
   }
 

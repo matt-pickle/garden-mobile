@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {KeyboardAvoidingView} from "react-native";
 import * as firebase from "firebase";
 import {logOut, updateGardens} from "../api/firebase-methods";
@@ -24,6 +24,19 @@ function Dashboard(props) {
   const [displayedGarden, setDisplayedGarden] = useState(null);
   const userRef = firebase.firestore().collection("users").doc(props.currentUserUID);
   
+  useEffect(() => {
+    if (Math.random() < .2) {
+      AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); //Test ID
+      AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
+    }
+  }, [isEditorOpen, isScheduleOpen]);
+
+  async function displayAd() {
+    if (await AdMobInterstitial.getIsReadyAsync()) {
+      await AdMobInterstitial.showAdAsync();
+    }
+  }
+
   function changeZone(newZone) {
     setZone(newZone);
     userRef.update({
@@ -46,12 +59,9 @@ function Dashboard(props) {
   }
 
   async function openEditor(garden) {
+    displayAd();
     setDisplayedGarden(garden);
     setIsEditorOpen(true);
-    if (Math.random() < .2) {
-      await AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); //Test ID
-      await AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
-    }
   }
 
   function saveGarden(width, height, plantedArr) {
@@ -69,11 +79,8 @@ function Dashboard(props) {
     updateGardens(userRef, updatedGardensArr);   
   }
 
-  async function saveAndClose(width, height, plantedArr) {
+  function saveAndClose(width, height, plantedArr) {
     saveGarden(width, height, plantedArr);
-    if (await AdMobInterstitial.getIsReadyAsync()) {
-      await AdMobInterstitial.showAdAsync();
-    }
     setIsEditorOpen(false);
     setDisplayedGarden(null);
   }
@@ -103,6 +110,7 @@ function Dashboard(props) {
     isScheduleOpen={isScheduleOpen}
     setIsScheduleOpen={setIsScheduleOpen}
     setIsSettingsVisible={setIsSettingsVisible}
+    displayAd={displayAd}
   />;
 
   const gardenList = <GardenList 
