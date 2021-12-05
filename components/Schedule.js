@@ -60,11 +60,15 @@ function Schedule(props) {
   });
 
   return (
-    <ScrollView style={styles.schedContainer}>
+    <View style={styles.schedContainer}>
       <Text style={styles.schedTitle}>SCHEDULE</Text>
-      {scheduleArr}
-      <Text style={styles.schedText}></Text>
-    </ScrollView>
+      <ScrollView
+        style={styles.schedScrollView}
+        persistentScrollbar={true}
+      >
+        {scheduleArr}
+      </ScrollView>
+    </View>
   )
 }
 

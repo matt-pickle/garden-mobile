@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, StatusBar} from 'react-native';
 
 const darkGreen = "rgb(0,75,20)";
 const lightGreen = "rgb(0,125,40)";
@@ -104,8 +104,7 @@ const styles = StyleSheet.create({
   dashContainer: {
     backgroundColor: lightGreen,
     width: "100%",
-    height: "100%",
-    paddingBottom: topBarHeight
+    height: "100%"
   }, 
 
   dashTopBar: {
@@ -147,7 +146,8 @@ const styles = StyleSheet.create({
 
   listContainer: {
     maxHeight: "100%",
-    paddingHorizontal: 5
+    paddingHorizontal: 5,
+    paddingBottom: topBarHeight
   },
 
   list: {
@@ -229,6 +229,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 3,
     paddingBottom: 5,
     marginBottom: 15
+  },
+
+  schedScrollView: {
+    flex: 1,
+    paddingRight: 10,
+    marginRight: -10
   },
 
   schedTextContainer: {
