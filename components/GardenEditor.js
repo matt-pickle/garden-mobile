@@ -22,7 +22,7 @@ function GardenEditor(props) {
     }
     const backHandler = BackHandler.addEventListener("hardwareBackPress", backAction);
     return () => backHandler.remove();
-  });
+  }, []);
 
   function createBlankPlantedArr(newWidth, newHeight) {
     let newPlantedArr = [];
