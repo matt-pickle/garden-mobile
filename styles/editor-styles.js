@@ -20,8 +20,8 @@ function createStyleSheet(width, height) {
   let mainAlignItems = "center";
   let plantMenuFlexDir = "column";
   let plantMenuWidth = windowWidth;
-  let plantMenuHeight = 124;
-  let plantNameWidth = 150;
+  let plantMenuHeight = 115
+  let plantNameWidth = "100%";
   let plantNameHeight = 30
   let menuBtnsContHeight = 65;
   let menuBtnMarginVertical = 0;
@@ -38,7 +38,7 @@ function createStyleSheet(width, height) {
     }
   } else {
     let maxGridHeight = windowHeight - topBarHeight - 90;
-    let maxGridWidth = windowWidth - 240;
+    let maxGridWidth = windowWidth - 145;
     squareSize = Math.floor((maxGridWidth - 4) / width);
     let gridHeight = squareSize * height + 4;
     if (gridHeight > maxGridHeight) {
@@ -47,10 +47,10 @@ function createStyleSheet(width, height) {
     mainFlexDirection = "row";
     mainAlignItems = "flex-start";
     plantMenuFlexDir = "row";
-    plantMenuWidth = 124;
+    plantMenuWidth = 115;
     plantMenuHeight = windowHeight - topBarHeight;
     plantNameWidth = 30;
-    plantNameHeight = 200;
+    plantNameHeight = "100%";
     menuBtnsContHeight = windowHeight - topBarHeight;
     menuBtnMarginVertical = 5;
     menuBtnMarginLeft = 0;
@@ -175,13 +175,13 @@ function createStyleSheet(width, height) {
       justifyContent: "center",
       width: plantNameWidth,
       height: plantNameHeight,
-      backgroundColor: cream,
+      backgroundColor: darkGreen,
       borderRadius: 5,
-      margin: 15
+      margin: 10
     },
 
     selectedPlantText: {
-      color: darkGreen,
+      color: cream,
       fontFamily: lightFont,
       fontSize: 16,
       textAlign: "center",
