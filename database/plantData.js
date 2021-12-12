@@ -17,6 +17,18 @@ export default plantData = [
   },
 
   {
+    name: "cabbage",
+    perSquareFoot: 1,
+    zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
+    startDate: -84,
+    startMessage: "Start cabbage seeds indoors",
+    transplantDate: -35,
+    transplantMessage: "Transplant cabbage to garden (1 per square foot)",
+    harvestDate: 28,
+    harvestMessage: "Harvest cabbage when head is firm"
+  },
+
+  {
     name: "carrot",
     perSquareFoot: 16,
     zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
@@ -26,6 +38,18 @@ export default plantData = [
     transplantMessage: null,
     harvestDate: 49,
     harvestMessage: "Harvest carrots"
+  },
+
+  {
+    name: "cauliflower",
+    perSquareFoot: 1,
+    zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: -70,
+    startMessage: "Start cauliflower seeds indoors",
+    transplantDate: -28,
+    transplantMessage: "Transplant cauliflower to garden (1 per square foot)",
+    harvestDate: 28,
+    harvestMessage: "Harvest cauliflower when head forms, before it starts to bloom"
   },
 
   {
@@ -62,6 +86,18 @@ export default plantData = [
     transplantMessage: "Transplant jalapenos to garden (1 per square foot)",
     harvestDate: 84,
     harvestMessage: "Harvest jalapenos"
+  },
+
+  {
+    name: "kale",
+    perSquareFoot: 1,
+    zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
+    startDate: -28,
+    startMessage: "Sow kale seeds in the garden (1 per square foot)",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 14,
+    harvestMessage: "Harvest kale when leaves are 6-8 inches long, starting with outer leaves. Can be harvested year-round in zones 7-10."
   },
 
   {
