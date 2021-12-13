@@ -33,8 +33,8 @@ function Square(props) {
       icon = require("../assets/plant-icons/jalapeno.png");
       break;
     case "kale":
-    icon = require("../assets/plant-icons/kale.png");
-    break;
+      icon = require("../assets/plant-icons/kale.png");
+      break;
     case "lettuce":
       icon = require("../assets/plant-icons/lettuce.png");
       break;
