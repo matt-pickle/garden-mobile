@@ -97,7 +97,7 @@ function createStyleSheet(width, height) {
       flexDirection: mainFlexDirection,
       justifyContent: "space-between",
       alignItems: mainAlignItems,
-      height: windowHeight - 45
+      height: windowHeight - topBarHeight,
     },
 
     pickerAndGridContainer: {
