@@ -2,7 +2,7 @@
   "expo": {
     "name": "Garden Planner",
     "slug": "garden-mobile",
-    "version": "1.1",
+    "version": "1.6",
     "orientation": "default",
     "icon": "./assets/icon.png",
     "splash": {
@@ -33,7 +33,10 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#004B14"
       },
-      "package": "com.slightlyimpressive.gardenplanner"
+      "package": "com.slightlyimpressive.gardenplanner",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-5662395825140930~5897918301"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
