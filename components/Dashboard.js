@@ -26,7 +26,8 @@ function Dashboard(props) {
   
   useEffect(() => {
     if (Math.random() < .2) {
-      AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); //Test ID
+      //AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); //Test ID
+      AdMobInterstitial.setAdUnitID("ca-app-pub-5662395825140930/7360857998"); //Real ID
       AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
     }
   }, [isEditorOpen, isScheduleOpen]);
