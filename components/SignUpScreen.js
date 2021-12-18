@@ -18,7 +18,7 @@ function SignUpScreen(props) {
     } else if (!password) {
       Alert.alert("Password is required");
     } else {
-      registration(name, zone, email, password);
+      registration(zone, email, password);
       props.setScreen("LoginScreen");
     }
   }
