@@ -36,7 +36,8 @@
       "package": "com.slightlyimpressive.gardenplanner",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-5662395825140930~5897918301"
-      }
+      },
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
