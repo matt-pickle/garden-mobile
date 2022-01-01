@@ -145,7 +145,7 @@ export default plantData = [
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 14,
-    harvestMessage: "Harvest lettuce, starting with outer leaves. Continue harvesting until the plant bolts"
+    harvestMessage: "Harvest spinach, starting with outer leaves. Continue harvesting until the plant bolts."
   },
 
   {
