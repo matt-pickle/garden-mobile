@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {View, Text, TextInput, Alert} from "react-native";
 import {TouchableOpacity} from "react-native-gesture-handler";
 import {Picker} from "@react-native-picker/picker";
+import * as WebBrowser from "expo-web-browser";
 import {registration} from "../api/firebase-methods";
 import styles from "../styles/styles";
 
@@ -158,6 +159,14 @@ function SignUpScreen(props) {
           />
         </Picker>
       </View>
+      <Text style={styles.smallText}>
+        Not sure? Look it up at{"\n"}
+        <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync("https://planthardiness.ars.usda.gov")}>
+          <Text style={styles.zoneLink}>https://planthardiness.ars.usda.gov</Text>
+        </TouchableOpacity>
+        {"\n"}(This can be changed later)
+      </Text>
+
       <TouchableOpacity onPress={handleSubmit}>
         <Text style={[styles.loginButton, styles.extraMarginBottom]}>SIGN UP</Text>
       </TouchableOpacity>

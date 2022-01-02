@@ -2,6 +2,7 @@ import React from "react";
 import {Modal, Text, View, TouchableOpacity} from "react-native";
 import {Picker} from "@react-native-picker/picker";
 import {Ionicons} from "@expo/vector-icons";
+import * as WebBrowser from "expo-web-browser";
 import styles from "../styles/styles";
 
 function SettingsModal(props) {
@@ -142,6 +143,9 @@ function SettingsModal(props) {
             />
           </Picker>
         </View>
+        <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync("https://planthardiness.ars.usda.gov")}>
+          <Text style={styles.darkZoneLink}>https://planthardiness.ars.usda.gov</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity onPress={() => props.setScreen("ChangeEmailScreen")}>
           <Text style={styles.modalButton}>CHANGE EMAIL</Text>

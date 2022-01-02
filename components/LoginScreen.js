@@ -45,7 +45,7 @@ function LoginScreen(props) {
         <Text style={styles.loginButton}>LOG IN</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => props.setScreen("ResetScreen")}>
-        <Text style={styles.smallLink}>Forgot password?</Text>
+        <Text style={styles.forgotPassword}>Forgot password?</Text>
       </TouchableOpacity>
       <Text style={styles.loginText}>Don't have an account?</Text>
       <TouchableOpacity onPress={() => props.setScreen("SignUpScreen")}>

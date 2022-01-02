@@ -23,9 +23,18 @@ const styles = StyleSheet.create({
 
   loginText: {
     color: cream,
+    textAlign: "center",
     fontFamily: lightFont,
     fontSize: 18,
     marginBottom: 15
+  },
+
+  smallText: {
+    color: cream,
+    textAlign: "center",
+    fontFamily: lightFont,
+    fontSize: 14,
+    marginBottom: 20
   },
 
   inputBox: {
@@ -48,7 +57,7 @@ const styles = StyleSheet.create({
     borderColor: darkCream,
     borderRadius: 5,
     paddingVertical: 5,
-    marginBottom: 20,
+    marginBottom: 10,
     elevation: 5
   },
 
@@ -84,7 +93,15 @@ const styles = StyleSheet.create({
     marginBottom: 0
   },
 
-  smallLink: {
+  zoneLink: {
+    color: cream,
+    fontFamily: lightFont,
+    fontSize: 14,
+    borderColor: cream,
+    borderBottomWidth: 1
+  },
+
+  forgotPassword: {
     color: cream,
     fontFamily: lightFont,
     fontSize: 14,
@@ -318,7 +335,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingVertical: 5,
     marginTop: -10,
-    marginBottom: 15
+    marginBottom: 5
   },
 
   modalPicker: {
@@ -340,6 +357,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     marginTop: 0,
     marginBottom: 15
+  },
+
+  darkZoneLink: {
+    color: darkGreen,
+    fontFamily: lightFont,
+    fontSize: 14,
+    borderColor: darkGreen,
+    borderBottomWidth: 1,
+    marginBottom: 20
   },
 
   modalButton: {

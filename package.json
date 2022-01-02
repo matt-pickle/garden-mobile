@@ -21,7 +21,8 @@
     "react-native-gesture-handler": "~1.10.2",
     "react-native-uuid": "^2.0.1",
     "react-native-web": "~0.13.12",
-    "expo-ads-admob": "~10.1.2"
+    "expo-ads-admob": "~10.1.2",
+    "expo-web-browser": "~9.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
