@@ -3,6 +3,18 @@ export default plantData = [
     name: "none",
     zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b","12a","12b","13a","13b"],
   },
+
+  {
+    name: "bell pepper",
+    perSquareFoot: 1,
+    zones: ["4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: -35,
+    startMessage: "Start bell pepper seeds indoors",
+    transplantDate: 14,
+    transplantMessage: "Transplant bell peppers to garden (1 per square foot)",
+    harvestDate: 84,
+    harvestMessage: "Harvest bell peppers"
+  },
   
   {
     name: "broccoli",
@@ -110,6 +122,18 @@ export default plantData = [
     transplantMessage: null,
     harvestDate: 21,
     harvestMessage: "Harvest lettuce, starting with outer leaves. Continue harvesting until the plant bolts."
+  },
+
+  {
+    name: "okra",
+    perSquareFoot: 1,
+    zones: ["6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: -49,
+    startMessage: "Start okra seeds indoors",
+    transplantDate: 7,
+    transplantMessage: "Transplant okra to garden (1 per square foot)",
+    harvestDate: 35,
+    harvestMessage: "Harvest okra before pods grow longer than 4 inches"
   },
 
   {
