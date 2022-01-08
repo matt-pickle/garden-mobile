@@ -9,11 +9,11 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -35,
-    startMessage: "Start bell pepper seeds indoors",
+    startMessage: "Start bell pepper seeds indoors.",
     transplantDate: 14,
-    transplantMessage: "Transplant bell peppers to garden (1 per square foot)",
+    transplantMessage: "Transplant bell peppers to garden (1 per square foot).",
     harvestDate: 84,
-    harvestMessage: "Harvest bell peppers"
+    harvestMessage: "Harvest bell peppers."
   },
   
   {
@@ -21,11 +21,11 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -84,
-    startMessage: "Start broccoli seeds indoors",
+    startMessage: "Start broccoli seeds indoors.",
     transplantDate: -35,
-    transplantMessage: "Transplant broccoli to garden (1 per square foot)",
+    transplantMessage: "Transplant broccoli to garden (1 per square foot).",
     harvestDate: 28,
-    harvestMessage: "Harvest broccoli when head forms, before it starts to bloom"
+    harvestMessage: "Harvest broccoli when head forms, before it starts to bloom."
   },
 
   {
@@ -33,11 +33,11 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
     startDate: -84,
-    startMessage: "Start cabbage seeds indoors",
+    startMessage: "Start cabbage seeds indoors.",
     transplantDate: -35,
-    transplantMessage: "Transplant cabbage to garden (1 per square foot)",
+    transplantMessage: "Transplant cabbage to garden (1 per square foot).",
     harvestDate: 28,
-    harvestMessage: "Harvest cabbage when head is firm"
+    harvestMessage: "Harvest cabbage when head is firm."
   },
 
   {
@@ -45,11 +45,11 @@ export default plantData = [
     perSquareFoot: 16,
     zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
     startDate: -21,
-    startMessage: "Sow carrot seeds in the garden (16 per square foot)",
+    startMessage: "Sow carrot seeds in the garden (16 per square foot).",
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 49,
-    harvestMessage: "Harvest carrots"
+    harvestMessage: "Harvest carrots."
   },
 
   {
@@ -57,11 +57,11 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -70,
-    startMessage: "Start cauliflower seeds indoors",
+    startMessage: "Start cauliflower seeds indoors.",
     transplantDate: -28,
-    transplantMessage: "Transplant cauliflower to garden (1 per square foot)",
+    transplantMessage: "Transplant cauliflower to garden (1 per square foot).",
     harvestDate: 28,
-    harvestMessage: "Harvest cauliflower when head forms, before it starts to bloom"
+    harvestMessage: "Harvest cauliflower when head forms, before it starts to bloom."
   },
 
   {
@@ -69,11 +69,11 @@ export default plantData = [
     perSquareFoot: 2,
     zones: ["4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b","12a","12b"],
     startDate: 7,
-    startMessage: "Sow cucumber seeds in the garden (2 per square foot)",
+    startMessage: "Sow cucumber seeds in the garden (2 per square foot).",
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 70,
-    harvestMessage: "Harvest cucumbers continually, before they turn yellow"
+    harvestMessage: "Harvest cucumbers continually, before they turn yellow."
   },
 
   {
@@ -81,11 +81,11 @@ export default plantData = [
     perSquareFoot: 9,
     zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: 2,
-    startMessage: "Sow green bean seeds in the garden (9 per square foot)",
+    startMessage: "Sow green bean seeds in the garden (9 per square foot).",
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 58,
-    harvestMessage: "Harvest green beans"
+    harvestMessage: "Harvest green beans."
   },
 
   {
@@ -93,11 +93,11 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -35,
-    startMessage: "Start jalapeno seeds indoors",
+    startMessage: "Start jalapeno seeds indoors.",
     transplantDate: 14,
-    transplantMessage: "Transplant jalapenos to garden (1 per square foot)",
+    transplantMessage: "Transplant jalapenos to garden (1 per square foot).",
     harvestDate: 84,
-    harvestMessage: "Harvest jalapenos"
+    harvestMessage: "Harvest jalapenos."
   },
 
   {
@@ -105,7 +105,7 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
     startDate: -28,
-    startMessage: "Sow kale seeds in the garden (1 per square foot)",
+    startMessage: "Sow kale seeds in the garden (1 per square foot).",
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 14,
@@ -117,7 +117,7 @@ export default plantData = [
     perSquareFoot: 4,
     zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -28,
-    startMessage: "Sow lettuce seeds in the garden (4 per square foot)",
+    startMessage: "Sow lettuce seeds in the garden (4 per square foot).",
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 21,
@@ -129,11 +129,11 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -49,
-    startMessage: "Start okra seeds indoors",
+    startMessage: "Start okra seeds indoors.",
     transplantDate: 7,
     transplantMessage: "Transplant okra to garden (1 per square foot)",
     harvestDate: 35,
-    harvestMessage: "Harvest okra before pods grow longer than 4 inches"
+    harvestMessage: "Harvest okra before pods grow longer than 4 inches."
   },
 
   {
@@ -141,11 +141,11 @@ export default plantData = [
     perSquareFoot: 5,
     zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b","12a","12b","13a","13b"],
     startDate: -70,
-    startMessage: "Start onion seeds indoors",
+    startMessage: "Start onion seeds indoors.",
     transplantDate: -28,
     transplantMessage: "Transplant onions to garden (5 per square foot)",
     harvestDate: 70,
-    harvestMessage: "Harvest onions when tops turn brown and fall over"
+    harvestMessage: "Harvest onions when tops turn brown and fall over."
   },
 
   {
@@ -153,11 +153,23 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["1a","1b","2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
     startDate: 0,
-    startMessage: "Plant sprouted potato sections in the garden (1 per square foot)",
+    startMessage: "Plant sprouted potato sections in the garden (1 per square foot).",
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 84,
-    harvestMessage: "Harvest potatoes when the tops die"
+    harvestMessage: "Harvest potatoes when the tops die."
+  },
+
+  {
+    name: "radish",
+    perSquareFoot: 16,
+    zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: -21,
+    startMessage: "Sow radish seeds in the garden (16 per square foot). More can be planted throughout the growing season.",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 7,
+    harvestMessage: "Harvest radishes around 4 weeks after planting."
   },
 
   {
@@ -165,7 +177,7 @@ export default plantData = [
     perSquareFoot: 9,
     zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b"],
     startDate: -35,
-    startMessage: "Sow spinach seeds in the garden (9 per square foot)",
+    startMessage: "Sow spinach seeds in the garden (9 per square foot).",
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 14,
@@ -177,11 +189,11 @@ export default plantData = [
     perSquareFoot: 8,
     zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -35,
-    startMessage: "Sow sugar snap pea seeds in the garden (8 per square foot)",
+    startMessage: "Sow sugar snap pea seeds in the garden (8 per square foot).",
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 21,
-    harvestMessage: "Harvest sugar snap peas"
+    harvestMessage: "Harvest sugar snap peas."
   },
 
   {
@@ -189,11 +201,11 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -35,
-    startMessage: "Sow sweet pea seeds in the garden (1 per square foot)",
+    startMessage: "Sow sweet pea seeds in the garden (1 per square foot).",
     transplantDate: null,
     transplantMessage: null,
     harvestDate: 21,
-    harvestMessage: "Harvest sweet peas"
+    harvestMessage: "Harvest sweet peas."
   },
 
   {
@@ -203,7 +215,7 @@ export default plantData = [
     startDate: -35,
     startMessage: "Start sweet potato sprouts indoors in water. Break sprouts off and plant in soil (indoors) when they reach 3 inches in height.",
     transplantDate: 21,
-    transplantMessage: "Transplant sweet potatoes to garden (1 per square foot, more space is better)",
+    transplantMessage: "Transplant sweet potatoes to garden (1 per square foot, more space is better).",
     harvestDate: 121,
     harvestMessage: "Harvest sweet potatoes before first frost. Cure in warm, humid place for 10 days."
   },
@@ -213,10 +225,22 @@ export default plantData = [
     perSquareFoot: 1,
     zones: ["4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -42,
-    startMessage: "Start tomato seeds indoors",
+    startMessage: "Start tomato seeds indoors.",
     transplantDate: 7,
-    transplantMessage: "Transplant tomatoes to garden after last frost (1 per square foot)",
+    transplantMessage: "Transplant tomatoes to garden after last frost (1 per square foot).",
     harvestDate: 77,
-    harvestMessage: "Harvest tomatoes as they become ripe"
+    harvestMessage: "Harvest tomatoes as they become ripe."
+  },
+
+  {
+    name: "turnip",
+    perSquareFoot: 9,
+    zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b"],
+    startDate: -14,
+    startMessage: "Sow turnip seeds in the garden (9 per square foot).",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 35,
+    harvestMessage: "Harvest turnips."
   }
 ];
