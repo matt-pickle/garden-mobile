@@ -16,6 +16,9 @@ function PlantMenu(props) {
   const menu = plantableArr.map((item, index) => {
     let icon = require("../assets/plant-icons/none.png");
     switch (item.name) {
+      case "bell-pepper":
+        icon = require("../assets/plant-icons/bell-pepper.png");
+        break;
       case "broccoli":
         icon = require("../assets/plant-icons/broccoli.png");
         break;
@@ -26,8 +29,8 @@ function PlantMenu(props) {
         icon = require("../assets/plant-icons/carrot.png");
         break;
       case "cauliflower":
-      icon = require("../assets/plant-icons/cauliflower.png");
-      break;
+        icon = require("../assets/plant-icons/cauliflower.png");
+        break;
       case "cucumber":
         icon = require("../assets/plant-icons/cucumber.png");
         break;
@@ -38,16 +41,22 @@ function PlantMenu(props) {
         icon = require("../assets/plant-icons/jalapeno.png");
         break;
       case "kale":
-      icon = require("../assets/plant-icons/kale.png");
-      break;
+        icon = require("../assets/plant-icons/kale.png");
+        break;
       case "lettuce":
         icon = require("../assets/plant-icons/lettuce.png");
         break;
       case "onion":
         icon = require("../assets/plant-icons/onion.png");
         break;
+      case "okra":
+        icon = require("../assets/plant-icons/okra.png");
+        break;
       case "potato":
         icon = require("../assets/plant-icons/potato.png");
+        break;
+      case "radish":
+        icon = require("../assets/plant-icons/radish.png");
         break;
       case "spinach":
         icon = require("../assets/plant-icons/spinach.png");
@@ -63,6 +72,9 @@ function PlantMenu(props) {
         break;
       case "tomato":
         icon = require("../assets/plant-icons/tomato.png");
+        break;
+      case "turnip":
+        icon = require("../assets/plant-icons/turnip.png");
         break;
     }
 

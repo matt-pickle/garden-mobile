@@ -11,6 +11,9 @@ function Square(props) {
 
   let icon = require("../assets/plant-icons/none.png");
   switch (planted) {
+    case "bell-pepper":
+      icon = require("../assets/plant-icons/bell-pepper.png");
+      break;
     case "broccoli":
       icon = require("../assets/plant-icons/broccoli.png");
       break;
@@ -41,8 +44,14 @@ function Square(props) {
     case "onion":
       icon = require("../assets/plant-icons/onion.png");
       break;
+    case "okra":
+      icon = require("../assets/plant-icons/okra.png");
+      break;
     case "potato":
       icon = require("../assets/plant-icons/potato.png");
+      break;
+    case "radish":
+      icon = require("../assets/plant-icons/radish.png");
       break;
     case "spinach":
       icon = require("../assets/plant-icons/spinach.png");
@@ -58,6 +67,9 @@ function Square(props) {
       break;
     case "tomato":
       icon = require("../assets/plant-icons/tomato.png");
+      break;
+    case "turnip":
+      icon = require("../assets/plant-icons/turnip.png");
       break;
   }
 
