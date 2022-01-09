@@ -20,13 +20,11 @@ function createStyleSheet(width, height) {
   let mainAlignItems = "center";
   let plantMenuFlexDir = "column";
   let plantMenuWidth = windowWidth;
-  let plantMenuHeight = 115
-  let plantNameWidth = "100%";
-  let plantNameHeight = 30
-  let menuBtnsContHeight = 65;
+  let plantMenuHeight = 125;
+  let contentPaddingHorizontal = 10;
+  let contentPaddingVertical = 15;
   let menuBtnMarginVertical = 0;
-  let menuBtnMarginLeft = 5;
-  let menuBtnMarginRight = 5;
+  let menuBtnMarginHorizontal = 5;
 
   if (windowWidth < windowHeight) {
     let maxGridHeight = windowHeight - topBarHeight - plantMenuHeight - 90;
@@ -47,14 +45,12 @@ function createStyleSheet(width, height) {
     mainFlexDirection = "row";
     mainAlignItems = "flex-start";
     plantMenuFlexDir = "row";
-    plantMenuWidth = 115;
+    plantMenuWidth = 110;
     plantMenuHeight = windowHeight - topBarHeight;
-    plantNameWidth = 30;
-    plantNameHeight = "100%";
-    menuBtnsContHeight = windowHeight - topBarHeight;
-    menuBtnMarginVertical = 5;
-    menuBtnMarginLeft = 0;
-    menuBtnMarginRight = 15;
+    contentPaddingHorizontal = 15;
+    contentPaddingVertical = 10;
+    menuBtnMarginVertical = 15;
+    menuBtnMarginHorizontal = 0;
   }
 
   gridWidth = squareSize * width + 4;
@@ -97,7 +93,7 @@ function createStyleSheet(width, height) {
       flexDirection: mainFlexDirection,
       justifyContent: "space-between",
       alignItems: mainAlignItems,
-      height: windowHeight - topBarHeight,
+      height: windowHeight - topBarHeight
     },
 
     pickerAndGridContainer: {
@@ -170,40 +166,31 @@ function createStyleSheet(width, height) {
       backgroundColor: darkGreen
     },
 
-    selectedPlantContainer: {
-      flexDirection: "column",
-      justifyContent: "center",
-      width: plantNameWidth,
-      height: plantNameHeight,
-      backgroundColor: darkGreen,
-      borderRadius: 5,
-      margin: 10
-    },
-
-    selectedPlantText: {
-      color: cream,
-      fontFamily: lightFont,
-      fontSize: 16,
-      textAlign: "center",
-      textTransform: "uppercase"
-    },
-
-    menuBtnsContainer: {
-      flexDirection: "column",
-      alignItems: "center",
-      height: menuBtnsContHeight
+    contentContainer: {
+      paddingHorizontal: contentPaddingHorizontal,
+      paddingVertical: contentPaddingVertical
     },
 
     menuButton: {
-      width: 50,
-      height: 50,
+      flexDirection: "column",
+      alignItems: "center",
+      width: 80,
+      height: 80,
       backgroundColor: cream,
       borderColor: darkCream,
       borderWidth: 3,
       borderRadius: 5,
-      marginVertical: menuBtnMarginVertical,
-      marginLeft: menuBtnMarginLeft,
-      marginRight: menuBtnMarginRight
+      marginHorizontal: menuBtnMarginHorizontal,
+      marginVertical: menuBtnMarginVertical
+    },
+
+    menuButtonText: {
+      color: cream,
+      fontFamily: lightFont,
+      fontSize: 12,
+      textTransform: "capitalize",
+      marginTop: 5,
+      marginHorizontal: -10
     },
 
     selectedPlantIcon: {
