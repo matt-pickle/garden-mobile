@@ -1,7 +1,7 @@
 export default function iconPicker(plantName) {
     let icon = require("../assets/plant-icons/none.png");
     switch (plantName) {
-        case "bell-pepper":
+        case "bell pepper":
             icon = require("../assets/plant-icons/bell-pepper.png");
             break;
         case "broccoli":

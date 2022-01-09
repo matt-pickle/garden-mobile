@@ -5,7 +5,7 @@ export default plantData = [
   },
 
   {
-    name: "bell-pepper",
+    name: "bell pepper",
     perSquareFoot: 1,
     zones: ["4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
     startDate: -35,

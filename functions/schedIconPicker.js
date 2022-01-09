@@ -1,6 +1,6 @@
 export default function schedIconPicker(plantName) {
     switch (plantName) {
-        case "bell-pepper":
+        case "bell pepper":
             icon = require("../assets/plant-icons/bell-pepper-sched.png");
             break;
         case "broccoli":
