@@ -225,52 +225,48 @@ const styles = StyleSheet.create({
 
   //SCHEDULE
 
-  schedContainer: {
-    flexGrow: 1,
-    flexDirection: "column",
-    backgroundColor: cream,
-    borderColor: darkCream,
-    borderWidth: 5,
-    borderRadius: 5,
-    padding: 15,
-    margin: 15,
-    elevation: 5
-  },
-
-  schedTitle: {
-    textAlign: "center",
-    color: darkGreen,
-    fontFamily: boldFont,
-    fontSize: 24,
-    borderColor: darkGreen,
-    borderBottomWidth: 3,
-    paddingBottom: 5,
-    marginBottom: 15
-  },
-
-  schedScrollView: {
-    flex: 1,
-    paddingRight: 10,
-    marginRight: -10
+  contentContainer: {
+    paddingVertical: 10
   },
 
   schedTextContainer: {
     flexDirection: "row",
-    marginBottom: 15,
+    backgroundColor: darkGreen,
+    borderRadius: 5,
+    padding: 10,
+    marginHorizontal: 15,
+    marginVertical: 5,
+    elevation: 5
+  },
+
+  schedLeftColumn: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRightWidth: 1,
+    borderColor: cream,
+    paddingRight: 10
   },
 
   schedDate: {
-    color: darkGreen,
+    color: cream,
     fontFamily: boldFont,
-    fontSize: 14
+    fontSize: 14,
+    marginBottom: 5
+  },
+
+  schedIconContainer: {
+    width: 40,
+    height: 40
   },
 
   schedText: {
     flexShrink: 1,
-    color: darkGreen,
+    color: cream,
     fontFamily: lightFont,
     fontSize: 14,
-    lineHeight: 20
+    lineHeight: 20,
+    paddingLeft: 10
   },
 
   //MODALS

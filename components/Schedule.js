@@ -1,7 +1,8 @@
 import React from "react";
-import {Text, View, ScrollView} from "react-native";
+import {Text, View, Image, ScrollView} from "react-native";
 import plantData from "../database/plantData";
 import frostDateData from "../database/frostDateData";
+import schedIconPicker from "../functions/schedIconPicker";
 import styles from "../styles/styles";
 
 function Schedule(props) {
@@ -18,28 +19,29 @@ function Schedule(props) {
     return plantNamesArr.includes(item.name);
   });
 
-  let datesArr = [];
+  let messagesArr = [];
   plantObjsArr.forEach(item => {
+    const icon = schedIconPicker(item.name);
     if (item.transplantDate) {
-      datesArr = datesArr.concat([
-        {[item.startDate]: item.startMessage},
-        {[item.transplantDate]: item.transplantMessage},
-        {[item.harvestDate]: item.harvestMessage}
+      messagesArr = messagesArr.concat([
+        {icon: icon, date: item.startDate, message: item.startMessage},
+        {icon: icon, date: item.transplantDate, message: item.transplantMessage},
+        {icon: icon, date: item.harvestDate, message: item.harvestMessage}
       ]);
     } else {
-      datesArr = datesArr.concat([
-        {[item.startDate]: item.startMessage},
-        {[item.harvestDate]: item.harvestMessage}
+      messagesArr = messagesArr.concat([
+        {icon: icon, date: item.startDate, message: item.startMessage},
+        {icon: icon, date: item.harvestDate, message: item.harvestMessage}
       ]);
     }
   });
 
-  datesArr.sort((a, b) => {
-    return Object.keys(a) - Object.keys(b);
+  messagesArr.sort((a, b) => {
+    return a.date - b.date;
   });
 
-  const readableDatesArr = datesArr.map(item => {
-    const dayOfYear = Number(Object.keys(item)) + frostDateData[props.zone];
+  messagesArr.forEach(item => {
+    const dayOfYear = Number(item.date) + frostDateData[props.zone];
     const now = new Date();
     const startOfYear = new Date(now.getFullYear(), 0, 0);
     const oneDay = 1000 * 60 * 60 * 24;
@@ -47,28 +49,30 @@ function Schedule(props) {
     const monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const dateString = `${monthsArr[date.getMonth()]} ${date.getDate()}`;
 
-    return {[dateString]: Object.values(item)};
+    item.date = dateString;
   });
 
-  const scheduleArr = readableDatesArr.map((item, index) => {
+  const scheduleArr = messagesArr.map((item, index) => {
     return (
       <View style={styles.schedTextContainer} key={index}>
-        <Text style={styles.schedDate}>{Object.keys(item)}:  </Text>
-        <Text style={styles.schedText}>{Object.values(item)}</Text>
+        <View style={styles.schedLeftColumn}>
+          <Text style={styles.schedDate}>{item.date}</Text>
+          <View style={styles.schedIconContainer}>
+            <Image source={item.icon} style={{width: "100%", height: "100%"}} resizeMode="contain"/>
+          </View>
+        </View>
+        <Text style={styles.schedText}>{item.message}</Text>
       </View>
     );      
   });
 
   return (
-    <View style={styles.schedContainer}>
-      <Text style={styles.schedTitle}>SCHEDULE</Text>
       <ScrollView
-        style={styles.schedScrollView}
-        persistentScrollbar={true}
+        contentContainerStyle={styles.contentContainer}
+        showsVerticalScrollIndicator={false}
       >
         {scheduleArr}
       </ScrollView>
-    </View>
   )
 }
 
