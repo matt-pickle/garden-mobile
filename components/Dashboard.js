@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {KeyboardAvoidingView} from "react-native";
+import {View} from "react-native";
 import * as firebase from "firebase";
 import {logOut, updateGardens} from "../api/firebase-methods";
 import {AdMobInterstitial} from "expo-ads-admob";
@@ -134,7 +134,7 @@ function Dashboard(props) {
   />;
 
   return (
-    <KeyboardAvoidingView style={styles.dashContainer} behavior="height">
+    <View style={styles.dashContainer}>
       {!isEditorOpen && dashTopBar}
       <SettingsModal
         isSettingsVisible={isSettingsVisible}
@@ -166,7 +166,7 @@ function Dashboard(props) {
         schedule :
         null
       }
-    </KeyboardAvoidingView>
+    </View>
   );
 
 }
