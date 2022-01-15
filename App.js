@@ -28,8 +28,8 @@ export default function App() {
         setOrientation("portrait");
       }
     }
-    const subscription = Dimensions.addEventListener("change", onChange);
-    return () => subscription.remove();
+    Dimensions.addEventListener("change", onChange);
+    return () => Dimensions.removeEventListener();
   }, []);
 
   //Disable warning message
