@@ -228,7 +228,7 @@ export default plantData = [
     startMessage: "Start sweet potato sprouts indoors in water. Break sprouts off and plant in soil (indoors) when they reach 3 inches in height.",
     transplantDate: 21,
     transplantMessage: "Transplant sweet potatoes to garden (1 per square foot, more space is better).",
-    harvestDate: 121,
+    harvestDate: 141,
     harvestMessage: "Harvest sweet potatoes before first frost. Cure in warm, humid place for 10 days."
   },
 
