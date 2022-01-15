@@ -185,6 +185,18 @@ export default plantData = [
   },
 
   {
+    name: "strawberry",
+    perSquareFoot: 4,
+    zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
+    startDate: -28,
+    startMessage: "Plant strawberry plants in garden (4 per square foot).",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 28,
+    harvestMessage: "Harvest strawberries when ripe. Different varieties will produce at different times. Plants can be overwintered and will produce for a few years."
+  },
+
+  {
     name: "sugar snap pea",
     perSquareFoot: 8,
     zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
