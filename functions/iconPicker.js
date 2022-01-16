@@ -46,6 +46,9 @@ export default function iconPicker(plantName) {
         case "spinach":
             icon = require("../assets/plant-icons/spinach.png");
             break;
+        case "strawberry":
+            icon = require("../assets/plant-icons/strawberry.png");
+            break;
         case "sugar snap pea":
             icon = require("../assets/plant-icons/sugar-snap-pea.png");
             break;
