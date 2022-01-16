@@ -22,7 +22,8 @@ function createStyleSheet(width, height) {
   let plantMenuWidth = windowWidth;
   let plantMenuHeight = 125;
   let contentPaddingHorizontal = 10;
-  let contentPaddingVertical = 15;
+  let contentPaddingTop = 15;
+  let contentPaddingBottom = 25;
   let menuBtnMarginVertical = 0;
   let menuBtnMarginHorizontal = 5;
 
@@ -46,9 +47,10 @@ function createStyleSheet(width, height) {
     mainAlignItems = "flex-start";
     plantMenuFlexDir = "row";
     plantMenuWidth = 110;
-    plantMenuHeight = windowHeight - topBarHeight;
+    plantMenuHeight = "auto";
     contentPaddingHorizontal = 15;
-    contentPaddingVertical = 10;
+    contentPaddingTop = 0;
+    contentPaddingBottom = 15;
     menuBtnMarginVertical = 15;
     menuBtnMarginHorizontal = 0;
   }
@@ -58,6 +60,7 @@ function createStyleSheet(width, height) {
   return StyleSheet.create({
 
     editorContainer: {
+      flex: 1,
       flexDirection: "column",
       alignItems: "center"
     },
@@ -90,10 +93,10 @@ function createStyleSheet(width, height) {
     },
 
     everythingButTopBarContainer: {
+      flex: 1,
       flexDirection: mainFlexDirection,
       justifyContent: "space-between",
-      alignItems: mainAlignItems,
-      height: windowHeight - topBarHeight
+      alignItems: mainAlignItems
     },
 
     pickerAndGridContainer: {
@@ -168,7 +171,8 @@ function createStyleSheet(width, height) {
 
     contentContainer: {
       paddingHorizontal: contentPaddingHorizontal,
-      paddingVertical: contentPaddingVertical
+      paddingTop: contentPaddingTop,
+      paddingBottom: contentPaddingBottom
     },
 
     menuButton: {
