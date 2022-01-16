@@ -2,7 +2,7 @@
   "expo": {
     "name": "Garden Planner",
     "slug": "garden-mobile",
-    "version": "2.0",
+    "version": "2.1",
     "orientation": "default",
     "icon": "./assets/icon.png",
     "splash": {
@@ -38,7 +38,7 @@
         "googleMobileAdsAppId": "ca-app-pub-5662395825140930~5897918301"
       },
       "permissions": [],
-      "versionCode": 6
+      "versionCode": 7
     },
     "web": {
       "favicon": "./assets/favicon.png"
