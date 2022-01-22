@@ -25,7 +25,7 @@ function createStyleSheet(width, height) {
   let contentPaddingTop = 15;
   let contentPaddingBottom = 25;
   let menuBtnMarginVertical = 0;
-  let menuBtnMarginHorizontal = 5;
+  let menuBtnMarginHorizontal = 7;
 
   if (windowWidth < windowHeight) {
     let maxGridHeight = windowHeight - topBarHeight - plantMenuHeight - 90;
@@ -191,7 +191,7 @@ function createStyleSheet(width, height) {
     menuButtonText: {
       color: cream,
       fontFamily: lightFont,
-      fontSize: 12,
+      fontSize: 11,
       textTransform: "capitalize",
       marginTop: 5,
       marginHorizontal: -10
