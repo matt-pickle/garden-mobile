@@ -15,6 +15,9 @@ export default function schedIconPicker(plantName) {
         case "cauliflower":
             icon = require("../assets/plant-icons/cauliflower-sched.png");
             break;
+        case "chard":
+            icon = require("../assets/plant-icons/chard-sched.png");
+            break;
         case "cucumber":
             icon = require("../assets/plant-icons/cucumber-sched.png");
             break;
@@ -50,6 +53,9 @@ export default function schedIconPicker(plantName) {
             break;
         case "sugar snap pea":
             icon = require("../assets/plant-icons/sugar-snap-pea-sched.png");
+            break;
+        case "summer squash":
+            icon = require("../assets/plant-icons/summer-squash.png");
             break;
         case "sweet pea":
             icon = require("../assets/plant-icons/sweet-pea-sched.png");

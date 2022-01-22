@@ -13,6 +13,9 @@ export default function iconPicker(plantName) {
         case "carrot":
             icon = require("../assets/plant-icons/carrot.png");
             break;
+        case "chard":
+            icon = require("../assets/plant-icons/chard.png");
+            break;
         case "cauliflower":
             icon = require("../assets/plant-icons/cauliflower.png");
             break;
@@ -51,6 +54,9 @@ export default function iconPicker(plantName) {
             break;
         case "sugar snap pea":
             icon = require("../assets/plant-icons/sugar-snap-pea.png");
+            break;
+        case "summer squash":
+            icon = require("../assets/plant-icons/summer-squash.png");
             break;
         case "sweet pea":
             icon = require("../assets/plant-icons/sweet-pea.png");
