@@ -65,6 +65,18 @@ export default plantData = [
   },
 
   {
+    name: "chard",
+    perSquareFoot: 4,
+    zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
+    startDate: -49,
+    startMessage: "Start chard seeds indoors.",
+    transplantDate: -21,
+    transplantMessage: "Transplant chard to garden (4 per square foot).",
+    harvestDate: 7,
+    harvestMessage: "Harvest chard, starting with outer leaves when they are about 6 inches tall."
+  },
+
+  {
     name: "cucumber",
     perSquareFoot: 2,
     zones: ["4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b","12a","12b"],
@@ -206,6 +218,18 @@ export default plantData = [
     transplantMessage: null,
     harvestDate: 21,
     harvestMessage: "Harvest sugar snap peas."
+  },
+
+  {
+    name: "summer squash",
+    perSquareFoot: 1,
+    zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b"],
+    startDate: -14,
+    startMessage: "Start summer squash seeds indoors.",
+    transplantDate: 1,
+    transplantMessage: "Transplant summer squash to garden (1 per square foot, more space is better).",
+    harvestDate: 42,
+    harvestMessage: "Harvest summer squash when the fruit is between 6 and 9 inches long."
   },
 
   {
