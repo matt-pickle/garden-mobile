@@ -55,7 +55,7 @@ export default function schedIconPicker(plantName) {
             icon = require("../assets/plant-icons/sugar-snap-pea-sched.png");
             break;
         case "summer squash":
-            icon = require("../assets/plant-icons/summer-squash.png");
+            icon = require("../assets/plant-icons/summer-squash-sched.png");
             break;
         case "sweet pea":
             icon = require("../assets/plant-icons/sweet-pea-sched.png");
