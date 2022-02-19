@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {View} from "react-native";
 import * as firebase from "firebase";
 import {logOut, updateGardens} from "../api/firebase-methods";
+import admobKeys from "../api/admob-keys";
 import {AdMobInterstitial} from "expo-ads-admob";
 import SettingsModal from "./SettingsModal";
 import CreateGardenModal from "./CreateGardenModal";
@@ -27,7 +28,7 @@ function Dashboard(props) {
   useEffect(() => {
     if (Math.random() < .2) {
       //AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); //Test ID
-      AdMobInterstitial.setAdUnitID("ca-app-pub-5662395825140930/7360857998"); //Real ID
+      AdMobInterstitial.setAdUnitID(admobKeys.interstitialID); //Real ID
       AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
     }
   }, [isEditorOpen, isScheduleOpen]);
