@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useMemo} from "react";
 import {Text, View, TouchableOpacity, BackHandler} from "react-native";
 import {Picker} from "@react-native-picker/picker";
 import uuid from "react-native-uuid";
@@ -52,19 +52,22 @@ function GardenEditor(props) {
     setPlantedArr(newPlantedArr);
   }
 
-  function populatePicker() {
-    let optionsArr = [];
-    for (i = 1; i <= 10; i++) {
-      optionsArr.push(
-        <Picker.Item
-          label={i.toString() + " ft"}
-          value={i}
-          key={i}
-        />
-      );
+  const pickerOptions = useMemo(() => {
+    function populatePicker() {
+      let optionsArr = [];
+      for (i = 1; i <= 10; i++) {
+        optionsArr.push(
+          <Picker.Item
+            label={i.toString() + " ft"}
+            value={i}
+            key={i}
+          />
+        );
+      }
+      return optionsArr;
     }
-    return optionsArr;
-  }
+    return populatePicker()
+  }, [])  
 
   const gridArr = plantedArr.map((item, index) => {
     return (
@@ -115,7 +118,7 @@ function GardenEditor(props) {
                 selectedValue={width}
                 onValueChange={value => changeWidth(value)}
               >
-                {populatePicker()}
+                {pickerOptions}
               </Picker>
             </View>
             <View style={styles.pickerContainer}>
@@ -127,7 +130,7 @@ function GardenEditor(props) {
                 selectedValue={height}
                 onValueChange={value => changeHeight(value)}
               >
-                {populatePicker()}
+                {pickerOptions}
               </Picker>
             </View>
           </View>
