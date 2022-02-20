@@ -77,6 +77,18 @@ export default plantData = [
   },
 
   {
+    name: "corn",
+    perSquareFoot: 4,
+    zones: ["3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b", "11a", "11b"],
+    startDate: 1,
+    startMessage: "Sow corn seeds in the garden (4 per square foot).",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 63,
+    harvestMessage: "Harvest corn when the silk first browns and the ears feel full."
+  },
+
+  {
     name: "cucumber",
     perSquareFoot: 2,
     zones: ["4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b","12a","12b"],
@@ -278,5 +290,17 @@ export default plantData = [
     transplantMessage: null,
     harvestDate: 35,
     harvestMessage: "Harvest turnips."
+  },
+
+  {
+    name: "winter squash",
+    perSquareFoot: 1,
+    zones: ["2a","2b","3a","3b","4a","4b","5a","5b","6a","6b","7a","7b","8a","8b","9a","9b","10a","10b","11a","11b"],
+    startDate: 14,
+    startMessage: "Sow winter squash seeds in the garden (1 per square foot, more space is better).",
+    transplantDate: null,
+    transplantMessage: null,
+    harvestDate: 98,
+    harvestMessage: "Harvest winter squash before the first hard frost."
   }
 ];
