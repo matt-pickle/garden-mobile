@@ -1,5 +1,6 @@
 import React, {useMemo} from "react";
 import {View, ScrollView, Text, Image, TouchableOpacity, Dimensions} from "react-native";
+import { useSelectedPlant } from "../context/SelectedPlantContext"
 import plantData from "../database/plantData.js";
 import iconPicker from "../functions/iconPicker";
 
@@ -9,6 +10,8 @@ function PlantMenu(props) {
   if (dim.width > dim.height) {
     isMenuHorizontal = false;
   }
+
+  const { selectedPlant, setSelectedPlant } = useSelectedPlant()
 
   const plantableArr = useMemo(() => {
     return (
@@ -24,8 +27,8 @@ function PlantMenu(props) {
         const icon = iconPicker(item.name);
         return (
           <TouchableOpacity
-            style={[props.styles.menuButton, (props.selectedPlant === item.name && props.styles.selectedPlantIcon)]}
-            onPress={() => props.setSelectedPlant(item.name)}
+            style={[props.styles.menuButton, (selectedPlant === item.name && props.styles.selectedPlantIcon)]}
+            onPress={() => setSelectedPlant(item.name)}
             key={index}
           >
             <Image source={icon} style={{width: "100%", height: "100%"}}/>
@@ -34,9 +37,8 @@ function PlantMenu(props) {
         );
       })
     )
-  }, [plantableArr, props.selectedPlant])
+  }, [plantableArr, selectedPlant])
   
-
   return (
     <View style={props.styles.menuContainer}>
       <ScrollView

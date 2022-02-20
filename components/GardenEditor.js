@@ -3,6 +3,7 @@ import {Text, View, TouchableOpacity, BackHandler} from "react-native";
 import {Picker} from "@react-native-picker/picker";
 import uuid from "react-native-uuid";
 import { Ionicons } from '@expo/vector-icons';
+import { SelectedPlantProvider } from "../context/SelectedPlantContext"
 import Square from "./Square";
 import PlantMenu from "./PlantMenu";
 import {createStyleSheet} from "../styles/editor-styles.js";
@@ -11,7 +12,6 @@ function GardenEditor(props) {
   const [plantedArr, setPlantedArr] = useState(props.displayedGarden.plantedArr);
   const [width, setWidth] = useState(props.displayedGarden.width);
   const [height, setHeight] = useState(props.displayedGarden.height);
-  const [selectedPlant, setSelectedPlant] = useState("none");
   const styles = createStyleSheet(width, height);
 
   //Make Android "Back" button save and close editor
@@ -69,83 +69,86 @@ function GardenEditor(props) {
     return populatePicker()
   }, [])  
 
-  const gridArr = plantedArr.map((item, index) => {
+  const gridArr = useMemo(() => {
     return (
-      <Square 
-        id={index}
-        style={styles.square}
-        planted={item}
-        selectedPlant={selectedPlant}
-        changePlantInArr={changePlantInArr}
-        key={uuid.v4()}
-      />
-    );
-  });
-
+      plantedArr.map((item, index) => {
+        return (
+          <Square 
+            id={index}
+            style={styles.square}
+            planted={item}
+            changePlantInArr={changePlantInArr}
+            key={uuid.v4()}
+          />
+        );
+      })
+    )
+  }, [plantedArr])
+  
   return (
-    <View style={styles.editorContainer}>
-      <View style={styles.topBar}>
-        <TouchableOpacity
-          onPress={() => props.saveAndClose(width, height, plantedArr)}
-          style={styles.backButton}
-        >
-          <Ionicons
-            name="arrow-back"
-            style={styles.arrow}
-          />
-        </TouchableOpacity>
-        <Text style={styles.gardenName}>{props.displayedGarden.gardenName}</Text>
-        <TouchableOpacity
-          style={styles.deleteButton}
-          onPress={() => props.openDeleteModal(props.garden)}
-        >
-          <Ionicons
-            name="trash-outline"
-            style={styles.trashIcon}
-          />
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.everythingButTopBarContainer}>
-        <View style={styles.pickerAndGridContainer}>
-          <View style={styles.sizePickerRow}>
-            <View style={styles.pickerContainer}>
-              <Text style={styles.pickerLabel}>Width: </Text>
-              <Picker
-                style={styles.picker}
-                dropdownIconColor="rgb(0,75,20)"
-                mode="dropdown"
-                selectedValue={width}
-                onValueChange={value => changeWidth(value)}
-              >
-                {pickerOptions}
-              </Picker>
-            </View>
-            <View style={styles.pickerContainer}>
-              <Text style={styles.pickerLabel}>Height: </Text>
-              <Picker
-                style={styles.picker}
-                dropdownIconColor="rgb(0,75,20)"
-                mode="dropdown"
-                selectedValue={height}
-                onValueChange={value => changeHeight(value)}
-              >
-                {pickerOptions}
-              </Picker>
-            </View>
-          </View>
-          <View style={styles.gridContainer}>
-            {gridArr}
-          </View>
+    <SelectedPlantProvider>
+      <View style={styles.editorContainer}>
+        <View style={styles.topBar}>
+          <TouchableOpacity
+            onPress={() => props.saveAndClose(width, height, plantedArr)}
+            style={styles.backButton}
+          >
+            <Ionicons
+              name="arrow-back"
+              style={styles.arrow}
+            />
+          </TouchableOpacity>
+          <Text style={styles.gardenName}>{props.displayedGarden.gardenName}</Text>
+          <TouchableOpacity
+            style={styles.deleteButton}
+            onPress={() => props.openDeleteModal(props.garden)}
+          >
+            <Ionicons
+              name="trash-outline"
+              style={styles.trashIcon}
+            />
+          </TouchableOpacity>
         </View>
-        <PlantMenu
-          styles={styles}
-          setSelectedPlant={setSelectedPlant}
-          selectedPlant={selectedPlant}
-          zone={props.zone}
-        />
+
+        <View style={styles.everythingButTopBarContainer}>
+          <View style={styles.pickerAndGridContainer}>
+            <View style={styles.sizePickerRow}>
+              <View style={styles.pickerContainer}>
+                <Text style={styles.pickerLabel}>Width: </Text>
+                <Picker
+                  style={styles.picker}
+                  dropdownIconColor="rgb(0,75,20)"
+                  mode="dropdown"
+                  selectedValue={width}
+                  onValueChange={value => changeWidth(value)}
+                >
+                  {pickerOptions}
+                </Picker>
+              </View>
+              <View style={styles.pickerContainer}>
+                <Text style={styles.pickerLabel}>Height: </Text>
+                <Picker
+                  style={styles.picker}
+                  dropdownIconColor="rgb(0,75,20)"
+                  mode="dropdown"
+                  selectedValue={height}
+                  onValueChange={value => changeHeight(value)}
+                >
+                  {pickerOptions}
+                </Picker>
+              </View>
+            </View>
+            <View style={styles.gridContainer}>
+              {gridArr}
+            </View>
+          </View>
+          <PlantMenu
+            styles={styles}
+            zone={props.zone}
+          />
+        </View>
       </View>
-    </View>
+    </SelectedPlantProvider>
   )
 }
 

@@ -1,13 +1,16 @@
 import React, {useState} from "react";
 import {Image, TouchableOpacity} from "react-native";
+import { useSelectedPlant } from "../context/SelectedPlantContext"
 import iconPicker from "../functions/iconPicker";
 
 function Square(props) {
   const [planted, setPlanted] = useState(props.planted);
 
+  const { selectedPlant } = useSelectedPlant()
+
   function changePlant() {
     setPlanted(props.selectedPlant);
-    props.changePlantInArr(props.id, props.selectedPlant);
+    props.changePlantInArr(props.id, selectedPlant);
   }
 
   const icon = iconPicker(planted);
