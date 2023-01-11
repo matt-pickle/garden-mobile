@@ -38,6 +38,10 @@ export default function App() {
   if (!firebase.apps.length) {
     console.log('Connected with Firebase')
     firebase.initializeApp(firebaseKeys.firebaseConfig);
+    firebase.firestore().settings({
+      experimentalForceLongPolling: true,
+      useFetchStreams: false
+    })
   }
 
   let [fontsLoaded] = useFonts({

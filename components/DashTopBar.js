@@ -1,7 +1,6 @@
 import React from "react";
 import {View, Text, TouchableOpacity} from "react-native";
 import { Entypo } from '@expo/vector-icons';
-import {AdMobInterstitial} from "expo-ads-admob";
 import styles from "../styles/styles";
 
 function DashTopBar(props) {    

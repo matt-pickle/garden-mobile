@@ -3,7 +3,7 @@ import {View} from "react-native";
 import * as firebase from "firebase";
 import {logOut, updateGardens} from "../api/firebase-methods";
 import admobKeys from "../api/admob-keys";
-import {AdMobInterstitial} from "expo-ads-admob";
+import {InterstitialAd, TestIds, AdEventType} from "react-native-google-mobile-ads";
 import SettingsModal from "./SettingsModal";
 import CreateGardenModal from "./CreateGardenModal";
 import DeleteModal from "./DeleteModal";
@@ -12,6 +12,9 @@ import GardenList from "./GardenList";
 import GardenEditor from "./GardenEditor";
 import Schedule from "./Schedule";
 import styles from "../styles/styles";
+
+const interstitial = InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL)
+// const interstitial = InterstitialAd.createForAdRequest(admobKeys.interstitialID)
 
 function Dashboard(props) {
   const [zone, setZone] = useState(props.userObj.zone);
@@ -23,19 +26,24 @@ function Dashboard(props) {
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
   const [gardenToDelete, setGardenToDelete] = useState({});
   const [displayedGarden, setDisplayedGarden] = useState(null);
+  const [adIsLoaded, setAdIsLoaded] = useState(false);
   const userRef = firebase.firestore().collection("users").doc(props.currentUserUID);
   
   useEffect(() => {
     if (Math.random() < .2) {
-      // AdMobInterstitial.setAdUnitID("ca-app-pub-3940256099942544/1033173712"); //Test ID
-      AdMobInterstitial.setAdUnitID(admobKeys.interstitialID); //Real ID
-      AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
+      const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+        setAdIsLoaded(true);
+      });
+  
+      interstitial.load();
+  
+      return unsubscribe;
     }
   }, [isEditorOpen, isScheduleOpen]);
 
   async function displayAd() {
-    if (await AdMobInterstitial.getIsReadyAsync()) {
-      await AdMobInterstitial.showAdAsync();
+    if (adIsLoaded) {
+      interstitial.show()
     }
   }
 

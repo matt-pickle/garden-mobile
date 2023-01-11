@@ -1,6 +1,5 @@
 import React, {useState} from "react";
-import {View, Text, TextInput, Alert} from "react-native";
-import {TouchableOpacity} from "react-native-gesture-handler";
+import {View, Text, TextInput, Alert, TouchableOpacity} from "react-native";
 import {logIn, logOut} from "../api/firebase-methods";
 import styles from "../styles/styles";
 

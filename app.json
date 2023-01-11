@@ -2,7 +2,7 @@
   "expo": {
     "name": "Garden Planner",
     "slug": "garden-mobile",
-    "version": "2.3",
+    "version": "2.4",
     "orientation": "default",
     "icon": "./assets/icon.png",
     "splash": {
@@ -26,7 +26,8 @@
       "backgroundColor": "#004B14"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.slightlyimpressive.gardenplanner"
     },
     "android": {
       "adaptiveIcon": {
@@ -34,14 +35,19 @@
         "backgroundColor": "#004B14"
       },
       "package": "com.slightlyimpressive.gardenplanner",
-      "config": {
-        "googleMobileAdsAppId": "ca-app-pub-5662395825140930~4170055589"
-      },
       "permissions": [],
-      "versionCode": 9
+      "versionCode": 10
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fe03986e-cee7-45f8-805c-7e46e27399e6"
+      }
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-5662395825140930~4170055589"
   }
 }
